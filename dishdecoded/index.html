@@ -1,0 +1,329 @@
+<!doctype html>
+<!-- ============================================================
+     Trajectory Labs app page (from the hamprep-site template, see TEMPLATE.md).
+     Served at trajectorylabs.io/dishdecoded/. All links to the parent site are relative.
+     Copy and screenshots come from dishdecoded.io (netlify/dishdecoded-web in the dishdecoded repo).
+     STORE STATE SWITCH: data-store="soon" (no badge, early access link)
+                         data-store="live" (store badge). When it ships, add the real App Store URL
+                         (hero and second CTA), the Apple trademark line in the footer, and pricing.
+     ============================================================ -->
+<html lang="en" data-store="soon">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DishDecoded: The nutrition app for people who actually cook</title>
+<meta name="description" content="Import any recipe with full nutrition, cook it with step-by-step auto-timers, log it in one tap, and get an AI recap of your day. Nutrition tracking built for home cooks, coming soon.">
+<link rel="canonical" href="https://trajectorylabs.io/dishdecoded/">
+<meta name="theme-color" content="#f5f9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1513" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trajectory Labs">
+<meta property="og:title" content="DishDecoded: The nutrition app for people who actually cook">
+<meta property="og:description" content="Import any recipe with full nutrition, cook it with auto-timers, log it in one tap, and get an AI recap of your day.">
+<meta property="og:url" content="https://trajectorylabs.io/dishdecoded/">
+<meta property="og:image" content="https://trajectorylabs.io/dishdecoded/icon.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="DishDecoded app icon: a teal fork whose tines turn into circuit lines and binary digits">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DishDecoded: The nutrition app for people who actually cook">
+<meta name="twitter:description" content="Import any recipe with full nutrition, cook it with auto-timers, log it in one tap, and get an AI recap of your day.">
+<meta name="twitter:image" content="https://trajectorylabs.io/dishdecoded/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../shared/app-page.css">
+<!-- SLOT: per-app accent. DishDecoded teal from dishdecoded.io (#2dd4bf) and the app icon.
+     Light: --accent-ink #0f766e is 5.2:1 on --bg #f5f9f7, 5.5:1 on white, 4.7:1 on --accent-soft #d5f5ee.
+     Dark:  --accent-ink #2dd4bf is 10:1 on #0b1513 and 6.7:1 on the dark --accent-soft #123a35.
+     Text on the #2dd4bf fill is dark ink (#0f1c1a, 9.4:1) in both modes. -->
+<style>
+:root {
+  --accent: #2dd4bf;
+  --accent-ink: #0f766e;
+  --accent-soft: #d5f5ee;
+  --accent-glow: rgba(45, 212, 191, .22);
+  --accent-shadow: rgba(15, 118, 110, .4);
+  --on-accent: #0f1c1a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --accent-ink: #2dd4bf; --accent-soft: #123a35; --accent-glow: rgba(45, 212, 191, .2); --accent-shadow: rgba(45, 212, 191, .35); }
+}
+:root[data-theme="dark"] { --accent-ink: #2dd4bf; --accent-soft: #123a35; --accent-glow: rgba(45, 212, 191, .2); --accent-shadow: rgba(45, 212, 191, .35); }
+/* Four screenshots instead of the template's five */
+@media (min-width: 901px) { .shots { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* Match the drawn device corners in the screenshots (corner radius is 14.5% of the width) */
+.shot img, .hero-phone { border-radius: 14.5% / 6.94%; }
+/* Before/after comparison */
+.compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.compare .card h3 { margin-bottom: 12px; }
+.compare ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; color: var(--muted); }
+.compare .ours ul { color: var(--ink); }
+@media (max-width: 700px) { .compare { grid-template-columns: 1fr; } }
+</style>
+<link rel="preload" as="image" href="assets/hero-phone.webp" type="image/webp">
+<script>
+// Always open at the top unless the link points at a section (#...).
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function () { window.scrollTo(0, 0); }); }
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ SHARED CHROME: nav (same on every app page) ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Trajectory Labs home">
+      <svg viewBox="0 0 564 771" aria-hidden="true"><rect x="0" y="0" width="234" height="184" rx="6" fill="var(--teal)"/><path d="M233 184 H564 V361 H421 V500 C421 552 462 588 520 588 H564 V771 C370 771 238 650 233 470 Z" fill="var(--mint)"/></svg>
+      Trajectory Labs
+    </a>
+    <span class="crumb"><span class="sep" aria-hidden="true">/</span><img src="assets/app-icon.webp" width="26" height="26" alt="">DishDecoded</span>
+    <nav class="nav-links" aria-label="Page">
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#support">Support</a>
+      <a class="keep" href="../#apps">More apps</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="label">Fuel &middot; Coming soon &middot; Nutrition</p>
+      <div class="app-id">
+        <img src="assets/app-icon.webp" width="76" height="76" alt="DishDecoded app icon: a teal fork whose tines turn into circuit lines and binary digits">
+        <div>
+          <div class="name">DishDecoded</div>
+          <div class="tag">Nutrition tracking for home cooks</div>
+        </div>
+      </div>
+      <h1>The nutrition app for people who <span class="accent">actually cook.</span></h1>
+      <p class="lead">Import any recipe with full nutrition, cook it with step-by-step timers, and log it in one tap. Every evening, an AI recap tells you how the day went.</p>
+
+      <div class="cta">
+        <span class="soon-pill store-soon"><span class="dot" aria-hidden="true"></span>Coming soon</span>
+        <!-- Live state: add the official store badges here with the real listing URLs -->
+        <a class="btn secondary" href="https://dishdecoded.io/#waitlist">Get early access at dishdecoded.io</a>
+      </div>
+      <p class="cta-note store-soon">Early access puts you on the beta list, so you hear first when it launches.</p>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="orb"></div>
+      <div class="dots"><i></i><i></i><i></i><i></i></div>
+      <img class="hero-phone" src="assets/hero-phone.webp" width="640" height="1338" alt="" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="section" aria-label="At a glance">
+  <div class="wrap">
+    <div class="stats">
+      <div><div class="num accent">Any</div><div class="what">Recipe from the web, decoded with per-serving nutrition</div></div>
+      <div><div class="num">1 tap</div><div class="what">To log a serving of something you cooked</div></div>
+      <div><div class="num">Auto</div><div class="what">Timers pulled straight from the recipe steps</div></div>
+      <div><div class="num">Nightly</div><div class="what">AI recap, plus weekly and monthly views</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCREENSHOTS. Sample data from dishdecoded.io's own screenshots; the sample user's name is removed. ============ -->
+<section class="section" id="inside">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">What's inside</p>
+      <h2>From recipe to recap.</h2>
+      <p>Bring in the recipe, cook it, log it, and see how the day added up.</p>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <img src="assets/shot-today.webp" width="520" height="1087" loading="lazy" decoding="async" alt="DishDecoded Today screen: 790 calories logged with protein, carb and fat bars, a two-day streak, and breakfast and lunch listed">
+        <figcaption><b>Today at a glance</b>Calories, macros, streak and every meal on one screen.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-recipe.webp" width="520" height="1087" loading="lazy" decoding="async" alt="A decoded Chicken Parmesan recipe showing 585 calories per serving with protein, carb and fat breakdown, and Log meal and Cook buttons">
+        <figcaption><b>Any recipe, decoded</b>Paste a link and get per-serving nutrition.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-cooking.webp" width="520" height="1087" loading="lazy" decoding="async" alt="Cooking mode, step 4 of 7 for Chicken Parmesan, in large text with a 15-minute timer running">
+        <figcaption><b>Cook, hands-free</b>Big readable steps with timers pulled from the recipe.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-recap.webp" width="520" height="1087" loading="lazy" decoding="async" alt="Daily recap for a Sunday: 58 grams of protein logged, two wins, two watch-outs, and a suggestion to add a fiber-rich side">
+        <figcaption><b>Evening recap</b>Wins, watch-outs and one thing to try tomorrow.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Why DishDecoded</p>
+      <h2>Calorie apps treat cooking like a chore. This one treats it like the point.</h2>
+      <p>Most trackers are built for packaged food and takeout. If you cook, you shouldn't have to weigh every ingredient.</p>
+    </div>
+    <div class="compare">
+      <div class="card">
+        <h3>Typical trackers</h3>
+        <ul>
+          <li>Weigh and search every ingredient in your recipe.</li>
+          <li>Re-enter the same home-cooked meals over and over.</li>
+          <li>Recipes in one app, tracking in another.</li>
+          <li>Numbers with no story, so you do the interpreting.</li>
+        </ul>
+      </div>
+      <div class="card accent-top ours">
+        <h3>DishDecoded</h3>
+        <ul>
+          <li>Import the recipe once and get per-serving nutrition instantly.</li>
+          <li>Cook it with step-by-step mode and automatic timers.</li>
+          <li>Log a serving in one tap. Your frequents learn your habits.</li>
+          <li>An AI recap every evening tells you how the day actually went.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Features</p>
+      <h2>Built for the way you really eat.</h2>
+      <p>Everything a home cook needs to track without the busywork.</p>
+    </div>
+    <div class="grid">
+      <div class="card accent-top">
+        <span class="idx">01</span>
+        <h3>Import any recipe</h3>
+        <p>Paste a link or share straight from your browser. DishDecoded pulls out the ingredients, steps and per-serving nutrition from virtually any recipe site.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">02</span>
+        <h3>Cooking mode with auto-timers</h3>
+        <p>Step-by-step cooking with timers found right in the recipe text, so "bake 15 minutes" becomes a one-tap timer. Log the meal the moment it's done.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">03</span>
+        <h3>AI daily recaps</h3>
+        <p>Every evening, a personal recap of wins, watch-outs and one suggestion for tomorrow. Weekly and monthly recaps show the bigger picture.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">04</span>
+        <h3>Describe or snap to log</h3>
+        <p>Type "two eggs and buttered toast" or snap a photo of your plate, and AI estimates the full nutrition.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">05</span>
+        <h3>Logging that learns you</h3>
+        <p>Frequents that know breakfast from dinner, saved meals, barcode scanning and a food database tuned for real cooking.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">06</span>
+        <h3>Synced and safe</h3>
+        <p>Your history, recipes and streaks sync to the cloud. New phone? Sign in and everything is right where you left it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIVACY SUMMARY (from dishdecoded.io/privacy) ============ -->
+<section class="section" id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Privacy</p>
+      <h2>Your data runs the app for you. That's it.</h2>
+      <p>The short version from DishDecoded's privacy policy. <a href="https://dishdecoded.io/privacy">Read the full privacy policy</a>.</p>
+    </div>
+    <div class="privacy-strip">
+      <div class="card">
+        <span class="big">Not sold, no ads</span>
+        <p>Your personal data isn't sold or shared with advertisers, and there are no ads.</p>
+      </div>
+      <div class="card">
+        <span class="big">Not used to train AI</span>
+        <p>Food descriptions, meal photos and recipe pages are sent to an AI service to estimate nutrition. None of it is used to train AI models.</p>
+      </div>
+      <div class="card">
+        <span class="big">Photos aren't kept</span>
+        <p>A meal photo is processed to estimate nutrition and isn't stored on DishDecoded's servers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECOND CTA (store state aware) ============ -->
+<section class="section" aria-label="Get the app">
+  <div class="wrap">
+    <div class="section-head cta-head">
+      <p class="label accent">Get DishDecoded</p>
+      <h2 class="store-soon">Almost ready to cook.</h2>
+      <h2 class="store-live">Ready for your next recipe.</h2>
+      <p class="store-soon">Join the early access list on <a href="https://dishdecoded.io">dishdecoded.io</a>. Store links will appear here at launch.</p>
+    </div>
+    <div class="cta">
+      <a class="btn secondary" href="https://dishdecoded.io/#waitlist">Get early access</a>
+      <a class="btn secondary" href="../#apps">More apps from Trajectory Labs</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ SHARED CHROME: contact band ============ -->
+<section class="band" id="support">
+  <div class="wrap">
+    <div>
+      <p class="label">Support</p>
+      <h2>Questions or ideas for DishDecoded?</h2>
+      <p>Email the team that builds it.</p>
+    </div>
+    <div class="band-mail">
+      <a class="mail" href="mailto:support@dishdecoded.io">support@dishdecoded.io</a>
+      <button class="btn secondary" type="button" data-copy="support@dishdecoded.io" hidden>Copy email</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHARED CHROME: footer ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <p class="legal">DishDecoded's nutrition numbers are AI estimates, not medical advice, and the app is not a medical device.</p>
+    <div class="row">
+      <span>&copy; 2026 Trajectory Labs, LLC. All rights reserved.</span>
+      <nav aria-label="Footer">
+        <a href="https://dishdecoded.io/privacy">Privacy policy</a>
+        <a href="https://dishdecoded.io/terms">Terms</a>
+        <a href="https://dishdecoded.io">dishdecoded.io</a>
+        <a href="../">Trajectory Labs</a>
+      </nav>
+      <span>Made in Oklahoma</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Copy email button: only shown when the clipboard API exists. Pure enhancement.
+(function () {
+  var b = document.querySelector('[data-copy]');
+  if (!b || !navigator.clipboard) return;
+  b.hidden = false;
+  b.addEventListener('click', function () {
+    navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
+      var t = b.textContent; b.textContent = 'Copied'; b.setAttribute('data-done', '');
+      setTimeout(function () { b.textContent = t; b.removeAttribute('data-done'); }, 1800);
+    });
+  });
+})();
+</script>
+</body>
+</html>

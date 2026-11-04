@@ -1,0 +1,314 @@
+<!doctype html>
+<!-- ============================================================
+     Trajectory Labs app page (from the hamprep-site template, see TEMPLATE.md).
+     Served at trajectorylabs.io/mythic-rep/. All links to the parent site are relative.
+     Copy, icon and card art come from the mythicrep repo (README.md and mythicrep-site/).
+     STORE STATE SWITCH: data-store="soon" (no badge). When the app ships, add the App Store badge
+     and listing URL, the Apple trademark line, and real phone screenshots.
+     ============================================================ -->
+<html lang="en" data-store="soon">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MythicRep: The workout tracker that levels up with you</title>
+<meta name="description" content="Log your lifts, level your cards. MythicRep is a workout tracker where every exercise is a collectible card and weights progress on their own. Coming soon to the App Store.">
+<link rel="canonical" href="https://trajectorylabs.io/mythic-rep/">
+<meta name="theme-color" content="#f5f9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1513" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trajectory Labs">
+<meta property="og:title" content="MythicRep: The workout tracker that levels up with you">
+<meta property="og:description" content="Every exercise is a card. Every workout is a deck. Weights progress on their own.">
+<meta property="og:url" content="https://trajectorylabs.io/mythic-rep/">
+<meta property="og:image" content="https://trajectorylabs.io/mythic-rep/icon.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="MythicRep app icon: a gold dumbbell across a glowing violet and gold crystal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MythicRep: The workout tracker that levels up with you">
+<meta name="twitter:description" content="Every exercise is a card. Every workout is a deck. Weights progress on their own.">
+<meta name="twitter:image" content="https://trajectorylabs.io/mythic-rep/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../shared/app-page.css">
+<!-- SLOT: per-app accent. MythicRep violet from the app icon and mythicrep.com (#7a3fb8).
+     Light: --accent-ink #7a3fb8 is 6.1:1 on --bg #f5f9f7, 5.4:1 on --accent-soft #efe6fa; white on the fill is 6.5:1.
+     Dark:  the fill lifts to #b892f0 with dark ink (7.4:1); --accent-ink #b892f0 is 7.4:1 on #0b1513, 6.3:1 on #2a1d3d. -->
+<style>
+:root {
+  --accent: #7a3fb8;
+  --accent-ink: #7a3fb8;
+  --accent-soft: #efe6fa;
+  --accent-glow: rgba(122, 63, 184, .2);
+  --accent-shadow: rgba(122, 63, 184, .45);
+  --on-accent: #ffffff;
+  --gold: #d9a632;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --accent: #b892f0; --accent-ink: #b892f0; --accent-soft: #2a1d3d;
+    --accent-glow: rgba(184, 146, 240, .22); --accent-shadow: rgba(184, 146, 240, .4); --on-accent: #0b1513;
+  }
+}
+:root[data-theme="dark"] {
+  --accent: #b892f0; --accent-ink: #b892f0; --accent-soft: #2a1d3d;
+  --accent-glow: rgba(184, 146, 240, .22); --accent-shadow: rgba(184, 146, 240, .4); --on-accent: #0b1513;
+}
+/* Hero shows the app icon large until phone screenshots exist */
+.hero-art { min-height: 320px; }
+.hero-icon { position: relative; width: min(60%, 240px); height: auto; border-radius: 22.4%; box-shadow: var(--shadow), 0 18px 48px var(--accent-shadow); }
+@media (max-width: 860px) { .hero-art { min-height: 260px; } }
+/* Card art gallery: landscape card art instead of portrait phone screenshots */
+.art { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.art figure { margin: 0; min-width: 0; }
+.art img { display: block; width: 100%; height: auto; aspect-ratio: 720 / 483; object-fit: cover; border-radius: 14px; box-shadow: var(--shadow); outline: 3px solid var(--frame, var(--line)); outline-offset: -3px; }
+.art figcaption { margin-top: 10px; font-size: 15px; color: var(--muted); }
+.art figcaption b { color: var(--ink); font-weight: 700; margin-right: 6px; }
+.art .gold { --frame: var(--gold); }
+.art .mythic { --frame: var(--accent); }
+@media (max-width: 760px) { .art { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .art { grid-template-columns: 1fr; } }
+/* Frame ladder */
+.ladder { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.ladder .card .big { display: block; font-weight: 800; font-size: 20px; margin-bottom: 4px; }
+.ladder .card p { margin: 0; color: var(--muted); }
+@media (max-width: 760px) { .ladder { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>
+<script>
+// Always open at the top unless the link points at a section (#...).
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function () { window.scrollTo(0, 0); }); }
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ SHARED CHROME: nav (same on every app page) ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Trajectory Labs home">
+      <svg viewBox="0 0 564 771" aria-hidden="true"><rect x="0" y="0" width="234" height="184" rx="6" fill="var(--teal)"/><path d="M233 184 H564 V361 H421 V500 C421 552 462 588 520 588 H564 V771 C370 771 238 650 233 470 Z" fill="var(--mint)"/></svg>
+      Trajectory Labs
+    </a>
+    <span class="crumb"><span class="sep" aria-hidden="true">/</span><img src="assets/app-icon.webp" width="26" height="26" alt="">MythicRep</span>
+    <nav class="nav-links" aria-label="Page">
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#support">Support</a>
+      <a class="keep" href="../#apps">More apps</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="label">Move &middot; Coming soon &middot; Fitness</p>
+      <div class="app-id">
+        <img src="assets/app-icon.webp" width="76" height="76" alt="MythicRep app icon: a gold dumbbell across a glowing violet and gold crystal">
+        <div>
+          <div class="name">MythicRep</div>
+          <div class="tag">The workout tracker that levels up with you</div>
+        </div>
+      </div>
+      <h1>Log your lifts. <span class="accent">Level your cards.</span></h1>
+      <p class="lead">Every exercise is a card and every workout is a deck. Log your sets in a couple of taps, and MythicRep works out next week's weights, hands out XP and levels up your cards until they go Mythic.</p>
+
+      <div class="cta">
+        <span class="soon-pill store-soon"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</span>
+        <a class="btn secondary" href="https://mythicrep.com">Visit mythicrep.com</a>
+      </div>
+      <p class="cta-note store-soon">In testing now. Free to use, no account needed.</p>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="orb"></div>
+      <div class="dots"><i></i><i></i><i></i><i></i></div>
+      <img class="hero-icon" src="assets/hero-icon.webp" width="480" height="480" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="section" aria-label="At a glance">
+  <div class="wrap">
+    <div class="stats">
+      <div><div class="num accent">1 card</div><div class="what">For every exercise, with its own sets, reps and weight</div></div>
+      <div><div class="num">Auto</div><div class="what">Weights go up, hold or back off on their own</div></div>
+      <div><div class="num">Lv 20</div><div class="what">Where a card's frame goes Mythic</div></div>
+      <div><div class="num">0</div><div class="what">Accounts, ads or trackers</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARD ART (in place of screenshots until the app has them) ============ -->
+<section class="section" id="inside">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Pick your character</p>
+      <h2>A real training log, dressed for battle.</h2>
+      <p>MythicRep isn't a game you play instead of training. Logging real workouts is the whole point. Every base card comes in a woman's, a man's and a fantasy version, or use your own photo.</p>
+    </div>
+    <div class="art">
+      <figure class="gold"><img src="assets/art-deadlift-male.webp" width="720" height="483" loading="lazy" decoding="async" alt="Deadlift card art: a lifter pulling a loaded barbell in front of a glowing sun"><figcaption><b>Deadlift</b>Strength</figcaption></figure>
+      <figure class="mythic"><img src="assets/art-back-squat-fantasy.webp" width="720" height="483" loading="lazy" decoding="async" alt="Back Squat card art, fantasy version: a rhino warrior squatting a heavy barbell"><figcaption><b>Back Squat</b>Strength</figcaption></figure>
+      <figure><img src="assets/art-run-female.webp" width="720" height="483" loading="lazy" decoding="async" alt="Run card art: a runner on a mountain road at sunrise"><figcaption><b>Run</b>Cardio</figcaption></figure>
+      <figure><img src="assets/art-pull-up-fantasy.webp" width="720" height="483" loading="lazy" decoding="async" alt="Pull Up card art, fantasy version: a lizard warrior hanging from a bar"><figcaption><b>Pull Up</b>Strength</figcaption></figure>
+      <figure class="gold"><img src="assets/art-kettlebell-swing-fantasy.webp" width="720" height="483" loading="lazy" decoding="async" alt="Kettlebell Swing card art, fantasy version: a bearded gnome in a purple knit cap swinging a kettlebell in front of a sunburst"><figcaption><b>Kettlebell Swing</b>HIIT</figcaption></figure>
+      <figure><img src="assets/art-long-walk-fantasy.webp" width="720" height="483" loading="lazy" decoding="async" alt="Long Walk card art, fantasy version: a tortoise-folk hiker with a walking stick on a mountain trail"><figcaption><b>Long Walk</b>Cardio</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Features</p>
+      <h2>The cards just make you want to come back.</h2>
+      <p>Underneath the game is a real training log built for the gym floor.</p>
+    </div>
+    <div class="grid">
+      <div class="card accent-top">
+        <span class="idx">01</span>
+        <h3>Cards</h3>
+        <p>Each movement is a card with its own sets, rep range and working weight. Squats, presses, pull-ups, runs, rower sprints, swings and more, or make your own.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">02</span>
+        <h3>Decks and a weekly schedule</h3>
+        <p>Build a deck for each workout, set which days you train, and Today shows the deck that's up. Miss one and it's offered as a catch-up later in the week.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">03</span>
+        <h3>Progression that runs itself</h3>
+        <p>Hit every set and the weight goes up next time. Miss once and it holds. Miss twice and it backs off a little so you can build again.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">04</span>
+        <h3>XP and levels</h3>
+        <p>Every set, personal best and weight increase earns XP. Your cards level up, and so do you, with a title for every stage of the climb.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">05</span>
+        <h3>Quests</h3>
+        <p>Optional multi-week programs with a weekly goal and a progress bar. Finish and claim your reward, or add a week if life got in the way.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">06</span>
+        <h3>Made for the gym floor</h3>
+        <p>Big tap targets, a rest timer on your lock screen, supersets, a set timer for holds and intervals, and pounds or kilos, miles or kilometers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FRAMES ============ -->
+<section class="section" aria-label="Card frames">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Frames</p>
+      <h2>Train long enough and it goes Mythic.</h2>
+      <p>A card's frame shows how far you've taken it. Mythic is about two years of steady training on a main lift. Then the stars start.</p>
+    </div>
+    <div class="ladder">
+      <div class="card"><span class="big">Standard</span><p>Where every card starts</p></div>
+      <div class="card"><span class="big">Gold</span><p>Card level 5</p></div>
+      <div class="card"><span class="big">Foil</span><p>Card level 10</p></div>
+      <div class="card accent-top"><span class="big">Mythic</span><p>Card level 20, then a star every 10</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIVACY SUMMARY (from mythicrep.com's privacy policy) ============ -->
+<section class="section" id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Privacy</p>
+      <h2>Your data, your call.</h2>
+      <p>The short version from MythicRep's privacy policy. <a href="https://mythicrep.com/privacy.html">Read the full privacy policy</a>.</p>
+    </div>
+    <div class="privacy-strip">
+      <div class="card">
+        <span class="big">No account</span>
+        <p>Open the app and start training. Your workouts live on your phone and work offline in the gym.</p>
+      </div>
+      <div class="card">
+        <span class="big">Backed up to your iCloud</span>
+        <p>With iCloud Drive on, a backup goes to your own iCloud after each workout, so a new phone picks up where you left off.</p>
+      </div>
+      <div class="card">
+        <span class="big">No ads, no tracking</span>
+        <p>No ads, no tracking and no data sold.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECOND CTA (store state aware) ============ -->
+<section class="section" aria-label="Get the app">
+  <div class="wrap">
+    <div class="section-head cta-head">
+      <p class="label accent">Get MythicRep</p>
+      <h2 class="store-soon">Your workouts, as a collectible deck.</h2>
+      <p class="store-soon">MythicRep is in testing now and coming to the App Store soon. The App Store link will appear here at launch.</p>
+    </div>
+    <div class="cta">
+      <a class="btn secondary" href="https://mythicrep.com">Visit mythicrep.com</a>
+      <a class="btn secondary" href="../#apps">More apps from Trajectory Labs</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ SHARED CHROME: contact band ============ -->
+<section class="band" id="support">
+  <div class="wrap">
+    <div>
+      <p class="label">Support</p>
+      <h2>Questions or ideas for MythicRep?</h2>
+      <p>Email the team that builds it.</p>
+    </div>
+    <div class="band-mail">
+      <a class="mail" href="mailto:support@mythicrep.com">support@mythicrep.com</a>
+      <button class="btn secondary" type="button" data-copy="support@mythicrep.com" hidden>Copy email</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHARED CHROME: footer (no Apple trademark line until the badge is shown) ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="row">
+      <span>&copy; 2026 Trajectory Labs, LLC. All rights reserved.</span>
+      <nav aria-label="Footer">
+        <a href="https://mythicrep.com/privacy.html">Privacy policy</a>
+        <a href="https://mythicrep.com">mythicrep.com</a>
+        <a href="../">Trajectory Labs</a>
+      </nav>
+      <span>Made in Oklahoma</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Copy email button: only shown when the clipboard API exists. Pure enhancement.
+(function () {
+  var b = document.querySelector('[data-copy]');
+  if (!b || !navigator.clipboard) return;
+  b.hidden = false;
+  b.addEventListener('click', function () {
+    navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
+      var t = b.textContent; b.textContent = 'Copied'; b.setAttribute('data-done', '');
+      setTimeout(function () { b.textContent = t; b.removeAttribute('data-done'); }, 1800);
+    });
+  });
+})();
+</script>
+</body>
+</html>
