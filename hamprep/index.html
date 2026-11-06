@@ -1,0 +1,329 @@
+<!doctype html>
+<!-- ============================================================
+     Trajectory Labs app page template. See TEMPLATE.md.
+     STORE STATE SWITCH: data-store="soon" (in review, no badge)
+                         data-store="live" (Apple badge, store link)
+     ============================================================ -->
+<html lang="en" data-store="soon">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- SLOT: page meta -->
+<title>HamPrep: Ham Radio Exam Prep for iPhone</title>
+<meta name="description" content="Ham radio Technician and General exam prep for iPhone. All 832 questions explained, real-format practice exams, offline and private. One-time purchase.">
+<link rel="canonical" href="https://hamprep.trajectorylabs.io/">
+<meta name="theme-color" content="#f5f9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1513" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+<link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trajectory Labs">
+<meta property="og:title" content="HamPrep: Ham Radio Exam Prep for iPhone">
+<meta property="og:description" content="Technician and General prep with every answer explained. One-time purchase, no subscription, no account.">
+<meta property="og:url" content="https://hamprep.trajectorylabs.io/">
+<meta property="og:image" content="https://hamprep.trajectorylabs.io/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HamPrep app icon next to the words Pass your ham radio exam. Understand it too.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HamPrep: Ham Radio Exam Prep for iPhone">
+<meta name="twitter:description" content="Technician and General prep with every answer explained. One-time purchase, no subscription, no account.">
+<meta name="twitter:image" content="https://hamprep.trajectorylabs.io/assets/og-card.jpg">
+<!-- SMART BANNER: uncomment once the app is live in the App Store.
+<meta name="apple-itunes-app" content="app-id=6830339051">
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="assets/app-page.css">
+<link rel="preload" as="image" href="assets/hero-phone.webp" type="image/webp">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ SHARED CHROME: nav (same on every app page) ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="https://trajectorylabs.io" aria-label="Trajectory Labs home">
+      <svg viewBox="0 0 564 771" aria-hidden="true"><rect x="0" y="0" width="234" height="184" rx="6" fill="var(--teal)"/><path d="M233 184 H564 V361 H421 V500 C421 552 462 588 520 588 H564 V771 C370 771 238 650 233 470 Z" fill="var(--mint)"/></svg>
+      Trajectory Labs
+    </a>
+    <!-- SLOT: app crumb -->
+    <span class="crumb"><span class="sep" aria-hidden="true">/</span><img src="assets/app-icon.webp" width="26" height="26" alt="">HamPrep</span>
+    <nav class="nav-links" aria-label="Page">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#privacy">Privacy</a>
+      <a href="support.html">Support</a>
+      <a class="keep" href="https://trajectorylabs.io/#apps">More apps</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ============ HERO (SLOT: app identity, value prop, store CTA) ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="label">Learn &middot; iPhone &middot; Technician and General</p>
+      <div class="app-id">
+        <img src="assets/app-icon.webp" width="76" height="76" alt="HamPrep app icon: a white radio tower on orange">
+        <div>
+          <div class="name">HamPrep</div>
+          <div class="tag">Ham Radio Exam Prep</div>
+        </div>
+      </div>
+      <h1>Pass your ham radio exam. <span class="accent">Understand it too.</span></h1>
+      <p class="lead">Technician and General prep with a plain-language explanation for every one of the 832 questions. One-time purchase, no subscription, no account.</p>
+
+      <div class="cta">
+        <!-- Coming-soon state: no link, no badge -->
+        <span class="soon-pill store-soon"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</span>
+        <!-- Live state: Apple's official badge, artwork untouched -->
+        <a class="store-badge store-live" href="https://apps.apple.com/app/id6830339051" aria-label="Download HamPrep on the App Store">
+          <img src="assets/app-store-badge-black.svg" width="168" height="56" alt="Download on the App Store">
+        </a>
+        <a class="btn secondary" href="#inside">See what's inside</a>
+      </div>
+      <p class="cta-note store-soon">Version 1.0 is with Apple for review. Built for iPhone.</p>
+      <p class="cta-note store-live">Free download for iPhone. Unlock a license with a one-time purchase, no subscription.</p>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="orb"></div>
+      <div class="dots"><i></i><i></i><i></i><i></i></div>
+      <img class="hero-phone" src="assets/hero-phone.webp" width="760" height="1639" alt="" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS (SLOT: four numbers) ============ -->
+<section class="section" aria-label="At a glance">
+  <div class="wrap">
+    <div class="stats">
+      <div><div class="num accent">832</div><div class="what">Questions, all explained</div></div>
+      <div><div class="num">2</div><div class="what">Current pools, Tech and General</div></div>
+      <div><div class="num">35</div><div class="what">Questions per practice exam</div></div>
+      <div><div class="num">0</div><div class="what">Data collected, ever</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCREENSHOTS (SLOT: five figures) ============ -->
+<section class="section" id="inside">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">What's inside</p>
+      <h2>Study, drill, pass.</h2>
+      <p>Everything in one place, and it all works without a signal.</p>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <img src="assets/shot-home.webp" width="520" height="1122" loading="lazy" decoding="async" alt="HamPrep home screen showing exam readiness at 60 percent, a daily check-in streak, and tiles for practice exam, topics, review missed and quick 10">
+        <figcaption><b>Your readiness, at a glance</b>Switch between Technician and General. See how much you have seen and mastered.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-explanation.webp" width="520" height="1122" loading="lazy" decoding="async" alt="A practice question about alternating current with the correct answer highlighted and a plain-language explanation below">
+        <figcaption><b>Every answer explained</b>Why the right answer is right, with worked math and the FCC rule behind it.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-passed.webp" width="520" height="1122" loading="lazy" decoding="async" alt="Exam results screen reading Passed, 34 of 35 correct, with a score for each chapter">
+        <figcaption><b>Exams in the real format</b>35 questions, one per group, 26 to pass, results by chapter.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-awards.webp" width="520" height="1122" loading="lazy" decoding="async" alt="Awards screen with a 9 day streak and ham-style awards such as First Contact, Worked All Chapters and Pileup Buster">
+        <figcaption><b>Make it a habit</b>Daily Net Check-In streaks and awards named the way hams name them.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-bands.webp" width="520" height="1122" loading="lazy" decoding="async" alt="Band privileges reference listing Technician frequency ranges and modes for each band">
+        <figcaption><b>Reference built in</b>Band privileges, formulas, phonetics and Q signals, always offline.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES (SLOT: six cards) ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Features</p>
+      <h2>Learn it, don't just memorize it.</h2>
+      <p>Built for the exam you will actually sit, with the current pools and the real format.</p>
+    </div>
+    <div class="grid">
+      <div class="card accent-top">
+        <span class="idx">01</span>
+        <h3>Current question pools</h3>
+        <p>Technician 2026-2030 with the February 2026 errata, valid from July 1, 2026. General 2023-2027 with the 6th errata, withdrawn questions removed.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">02</span>
+        <h3>A clear explanation for all 832 questions</h3>
+        <p>Plain language, worked math where it matters, and the FCC rule behind the answer. Official figures T-1, T-2, T-3 and G7-1 with pinch to zoom.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">03</span>
+        <h3>Practice exams in the real format</h3>
+        <p>35 questions drawn one from each group, 26 to pass, a 30 minute pacing timer, and results broken down by chapter.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">04</span>
+        <h3>Spaced repetition</h3>
+        <p>Questions you miss come back right when you are about to forget them, until you get them right for good.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">05</span>
+        <h3>Daily Net Check-In and awards</h3>
+        <p>10 questions, about 3 minutes a day, with a streak to keep alive. Earn Worked All Chapters, Pileup Buster, Elmer, 73 and more. Passed? Share an "I passed" card with your new call sign.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">06</span>
+        <h3>Handy reference and exam finder</h3>
+        <p>Band privileges for Technician and General, key formulas, the phonetic alphabet and Q signals. Find an exam session near you and know what to bring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING (SLOT: free tier list, plans) ============ -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Pricing</p>
+      <h2>Free to start. One payment to finish.</h2>
+      <p>No subscription, no account, no ads. Buy once and it is yours. Family Sharing included.</p>
+    </div>
+    <div class="pricing">
+      <div class="free">
+        <h3>Free forever</h3>
+        <p class="muted">Download and start studying today.</p>
+        <div class="price">$0</div>
+        <ul class="check">
+          <li>Chapter 1 of each license, every question explained</li>
+          <li>One full practice exam per license</li>
+          <li>Daily Net Check-In and streaks</li>
+          <li>All reference cards: bands, formulas, phonetics, Q signals</li>
+        </ul>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <div class="name">Technician License</div>
+          <div class="price">$4.99<small>once</small></div>
+          <div class="what">All 10 Technician chapters and unlimited practice exams.</div>
+        </div>
+        <div class="plan">
+          <div class="name">General License</div>
+          <div class="price">$4.99<small>once</small></div>
+          <div class="what">All 10 General chapters and unlimited practice exams.</div>
+        </div>
+        <div class="plan best">
+          <span class="chip accent">Best value</span>
+          <div class="name">All Licenses Bundle</div>
+          <div class="price">$7.99<small>once</small></div>
+          <div class="what">Technician and General together, for one price.</div>
+        </div>
+        <div class="plan-note">
+          <span>One-time purchase, no subscription</span>
+          <span>Family Sharing included</span>
+          <span>Restore Purchase on any new device</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIVACY SUMMARY (SLOT: three facts, link to privacy.html) ============ -->
+<section class="section" id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Privacy</p>
+      <h2>Nothing to collect, so nothing is collected.</h2>
+      <p>HamPrep's App Store privacy label is Data Not Collected, and that is the whole policy in three words. <a href="privacy.html">Read the full privacy policy</a>.</p>
+    </div>
+    <div class="privacy-strip">
+      <div class="card">
+        <span class="big">No account</span>
+        <p>Nothing to sign up for. Open the app and start on question one.</p>
+      </div>
+      <div class="card">
+        <span class="big">No ads, no tracking</span>
+        <p>No analytics, no advertising, and nothing is sent to Trajectory Labs.</p>
+      </div>
+      <div class="card">
+        <span class="big">Works offline</span>
+        <p>Study anywhere. Optional iCloud sync keeps your progress on your own devices, in your own iCloud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECOND CTA (store state aware) ============ -->
+<section class="section" aria-label="Get the app">
+  <div class="wrap">
+    <div class="section-head cta-head">
+      <p class="label accent">Get HamPrep</p>
+      <h2 class="store-soon">Almost on the air.</h2>
+      <h2 class="store-live">Ready when you are.</h2>
+      <p class="store-soon">Version 1.0 is in App Review. This page will carry the App Store link the moment it is approved.</p>
+      <p class="store-live">Free on the App Store for iPhone. Unlock a license whenever you are ready.</p>
+    </div>
+    <div class="cta">
+      <span class="soon-pill store-soon"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</span>
+      <a class="store-badge store-live" href="https://apps.apple.com/app/id6830339051" aria-label="Download HamPrep on the App Store">
+        <img src="assets/app-store-badge-black.svg" width="168" height="56" alt="Download on the App Store" loading="lazy">
+      </a>
+      <a class="btn secondary" href="https://trajectorylabs.io/#apps">More apps from Trajectory Labs</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ SHARED CHROME: contact band ============ -->
+<section class="band" id="support">
+  <div class="wrap">
+    <div>
+      <p class="label">Support</p>
+      <h2>Stuck on a question, or found a wrong answer?</h2>
+      <p>Email us and we will reply within two business days. Every reported question is checked against the official pool. <a href="support.html">Common questions are answered on the support page</a>.</p>
+    </div>
+    <div class="band-mail">
+      <a class="mail" href="mailto:support@trajectorylabs.io">support@trajectorylabs.io</a>
+      <button class="btn secondary" type="button" data-copy="support@trajectorylabs.io" hidden>Copy email</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHARED CHROME: footer (SLOT: legal line) ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <p class="legal">Question pools are published by the NCVEC Question Pool Committee and are in the public domain. HamPrep is not affiliated with the NCVEC, the FCC, or the ARRL. <span class="store-live">Apple, the Apple logo, and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</span></p>
+    <div class="row">
+      <span>&copy; 2026 Trajectory Labs, LLC. All rights reserved.</span>
+      <nav aria-label="Footer">
+        <a href="privacy.html">Privacy policy</a>
+        <a href="support.html">Support</a>
+        <a href="https://trajectorylabs.io">Trajectory Labs</a>
+      </nav>
+      <span>Made in Oklahoma</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Copy email button: only shown when the clipboard API exists. Pure enhancement.
+(function () {
+  var b = document.querySelector('[data-copy]');
+  if (!b || !navigator.clipboard) return;
+  b.hidden = false;
+  b.addEventListener('click', function () {
+    navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
+      var t = b.textContent; b.textContent = 'Copied'; b.setAttribute('data-done', '');
+      setTimeout(function () { b.textContent = t; b.removeAttribute('data-done'); }, 1800);
+    });
+  });
+})();
+</script>
+</body>
+</html>
