@@ -9,8 +9,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- SLOT: page meta -->
-<title>HamPrep: Ham Radio Exam Prep for iPhone</title>
-<meta name="description" content="Ham radio Technician and General exam prep for iPhone. All 832 questions explained, real-format practice exams, offline and private. One-time purchase.">
+<title>HamPrep: Ham Radio Exam Prep for iPhone and iPad</title>
+<meta name="description" content="Ham radio Technician, General and Extra exam prep for iPhone and iPad. All 1,431 questions explained, real-format practice exams, offline and private. One-time purchase.">
 <link rel="canonical" href="https://trajectorylabs.io/hamprep/">
 <meta name="theme-color" content="#f5f9f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b1513" media="(prefers-color-scheme: dark)">
@@ -20,24 +20,33 @@
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Trajectory Labs">
-<meta property="og:title" content="HamPrep: Ham Radio Exam Prep for iPhone">
-<meta property="og:description" content="Technician and General prep with every answer explained. One-time purchase, no subscription, no account.">
+<meta property="og:title" content="HamPrep: Ham Radio Exam Prep for iPhone and iPad">
+<meta property="og:description" content="Technician, General and Extra prep with every answer explained. One-time purchase, no subscription, no account.">
 <meta property="og:url" content="https://trajectorylabs.io/hamprep/">
 <meta property="og:image" content="https://trajectorylabs.io/hamprep/assets/og-card.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="HamPrep app icon next to the words Pass your ham radio exam. Understand it too.">
+<meta property="og:image:alt" content="HamPrep app icon next to the words Pass your ham radio exam. Understand it too, and a practice question with its explanation.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HamPrep: Ham Radio Exam Prep for iPhone">
-<meta name="twitter:description" content="Technician and General prep with every answer explained. One-time purchase, no subscription, no account.">
+<meta name="twitter:title" content="HamPrep: Ham Radio Exam Prep for iPhone and iPad">
+<meta name="twitter:description" content="Technician, General and Extra prep with every answer explained. One-time purchase, no subscription, no account.">
 <meta name="twitter:image" content="https://trajectorylabs.io/hamprep/assets/og-card.jpg">
-<!-- SMART BANNER: uncomment once the app is live in the App Store.
+<!-- Smart App Banner: on since 1.1 (2026-11-12); Safari on iPhone and iPad shows the App Store banner. -->
 <meta name="apple-itunes-app" content="app-id=6830339051">
--->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="assets/app-page.css">
+<style>
+  /* HamPrep only: four plans since 1.1 (Extra), and the iPad figure. The shared app-page.css stays untouched. */
+  .plans.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  @media (max-width: 1000px) { .plans.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .plans.four { grid-template-columns: 1fr; } }
+  .shot-wide { margin: 40px 0 0; }
+  .shot-wide img { width: 100%; height: auto; border-radius: 22px; box-shadow: var(--shadow); }
+  .shot-wide figcaption { margin-top: 14px; font-size: 15px; line-height: 1.45; color: var(--muted); max-width: 62ch; }
+  .shot-wide figcaption b { display: block; color: var(--ink); font-weight: 700; margin-bottom: 2px; }
+</style>
 <link rel="preload" as="image" href="assets/hero-phone.webp" type="image/webp">
 </head>
 <body>
@@ -67,7 +76,7 @@
 <section class="hero">
   <div class="wrap">
     <div class="hero-copy">
-      <p class="label">Learn &middot; iPhone &middot; Technician and General</p>
+      <p class="label">Learn &middot; iPhone and iPad &middot; All 3 licenses</p>
       <div class="app-id">
         <img src="assets/app-icon.webp" width="76" height="76" alt="HamPrep app icon: a white radio tower on orange">
         <div>
@@ -76,7 +85,7 @@
         </div>
       </div>
       <h1>Pass your ham radio exam. <span class="accent">Understand it too.</span></h1>
-      <p class="lead">Technician and General prep with a plain-language explanation for every one of the 832 questions. One-time purchase, no subscription, no account.</p>
+      <p class="lead">Technician, General and Extra prep with a plain-language explanation for every one of the 1,431 questions. One-time purchase, no subscription, no account.</p>
 
       <div class="cta">
         <!-- Live state: Apple's official badge, artwork untouched -->
@@ -85,13 +94,13 @@
         </a>
         <a class="btn secondary" href="#inside">See what's inside</a>
       </div>
-      <p class="cta-note store-live">Free download for iPhone. Unlock a license with a one-time purchase, no subscription.</p>
+      <p class="cta-note store-live">Free download for iPhone and iPad. Unlock a license with a one-time purchase, no subscription.</p>
     </div>
 
     <div class="hero-art" aria-hidden="true">
       <div class="orb"></div>
       <div class="dots"><i></i><i></i><i></i><i></i></div>
-      <img class="hero-phone" src="assets/hero-phone.webp" width="760" height="1639" alt="" fetchpriority="high">
+      <img class="hero-phone" src="assets/hero-phone.webp" width="760" height="1642" alt="" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -100,9 +109,9 @@
 <section class="section" aria-label="At a glance">
   <div class="wrap">
     <div class="stats">
-      <div><div class="num accent">832</div><div class="what">Questions, all explained</div></div>
-      <div><div class="num">2</div><div class="what">Current pools, Tech and General</div></div>
-      <div><div class="num">35</div><div class="what">Questions per practice exam</div></div>
+      <div><div class="num accent">1,431</div><div class="what">Questions, all explained</div></div>
+      <div><div class="num">3</div><div class="what">Current pools, Tech, General and Extra</div></div>
+      <div><div class="num">35 or 50</div><div class="what">Questions per practice exam</div></div>
       <div><div class="num">0</div><div class="what">Data collected, ever</div></div>
     </div>
   </div>
@@ -118,8 +127,8 @@
     </div>
     <div class="shots">
       <figure class="shot">
-        <img src="assets/shot-home.webp" width="520" height="1122" loading="lazy" decoding="async" alt="HamPrep home screen showing exam readiness at 60 percent, a daily check-in streak, and tiles for practice exam, topics, review missed and quick 10">
-        <figcaption><b>Your readiness, at a glance</b>Switch between Technician and General. See how much you have seen and mastered.</figcaption>
+        <img src="assets/shot-home.webp" width="520" height="1122" loading="lazy" decoding="async" alt="HamPrep home screen with Technician, General and Extra tabs, exam readiness at 60 percent, a daily check-in streak, study tiles and the next awards">
+        <figcaption><b>Your readiness, at a glance</b>Switch between Technician, General and Extra. See how much you have seen and mastered.</figcaption>
       </figure>
       <figure class="shot">
         <img src="assets/shot-explanation.webp" width="520" height="1122" loading="lazy" decoding="async" alt="A practice question about alternating current with the correct answer highlighted and a plain-language explanation below">
@@ -127,10 +136,10 @@
       </figure>
       <figure class="shot">
         <img src="assets/shot-passed.webp" width="520" height="1122" loading="lazy" decoding="async" alt="Exam results screen reading Passed, 34 of 35 correct, with a score for each chapter">
-        <figcaption><b>Exams in the real format</b>35 questions, one per group, 26 to pass, results by chapter.</figcaption>
+        <figcaption><b>Exams in the real format</b>One question per group, 26 of 35 to pass Technician or General, results by chapter.</figcaption>
       </figure>
       <figure class="shot">
-        <img src="assets/shot-awards.webp" width="520" height="1122" loading="lazy" decoding="async" alt="Awards screen with a 9 day streak and ham-style awards such as First Contact, Worked All Chapters and Pileup Buster">
+        <img src="assets/shot-awards.webp" width="520" height="1122" loading="lazy" decoding="async" alt="Awards screen with a 9 day streak, 6 of 12 ham-style awards earned such as First Contact, Worked All Chapters and Pileup Buster">
         <figcaption><b>Make it a habit</b>Daily Net Check-In streaks and awards named the way hams name them.</figcaption>
       </figure>
       <figure class="shot">
@@ -138,6 +147,10 @@
         <figcaption><b>Reference built in</b>Band privileges, formulas, phonetics and Q signals, always offline.</figcaption>
       </figure>
     </div>
+    <figure class="shot-wide">
+      <img src="assets/shot-ipad.webp" width="1200" height="902" loading="lazy" decoding="async" alt="HamPrep on iPad in landscape: exam readiness and all ten Technician chapters on the left, daily check-in, study tiles and next awards on the right">
+      <figcaption><b>Made for iPad too</b>A two-column layout with the question and its explanation side by side, plus keyboard shortcuts: A to D to answer, arrow keys to move. One purchase works on your iPhone and iPad.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -153,32 +166,32 @@
       <div class="card accent-top">
         <span class="idx">01</span>
         <h3>Current question pools</h3>
-        <p>Technician 2026-2030 with the February 2026 errata, valid from July 1, 2026. General 2023-2027 with the 6th errata, withdrawn questions removed.</p>
+        <p>Technician 2026-2030 with the February 2026 errata, valid from July 1, 2026. General 2023-2027 with the 6th errata and Extra 2024-2028 with the 4th errata, withdrawn questions removed.</p>
       </div>
       <div class="card accent-top">
         <span class="idx">02</span>
-        <h3>A clear explanation for all 832 questions</h3>
-        <p>Plain language, worked math where it matters, and the FCC rule behind the answer. Official figures T-1, T-2, T-3 and G7-1 with pinch to zoom.</p>
+        <h3>A clear explanation for all 1,431 questions</h3>
+        <p>Plain language, worked math where it matters, and the FCC rule behind the answer. Every official figure, with pinch to zoom.</p>
       </div>
       <div class="card accent-top">
         <span class="idx">03</span>
         <h3>Practice exams in the real format</h3>
-        <p>35 questions drawn one from each group, 26 to pass, a 30 minute pacing timer, and results broken down by chapter.</p>
+        <p>One question drawn from each group, just like exam day: 35 with 26 to pass for Technician and General, 50 with 37 to pass for Extra. A pacing timer and results by chapter.</p>
       </div>
       <div class="card accent-top">
         <span class="idx">04</span>
-        <h3>Spaced repetition</h3>
-        <p>Questions you miss come back right when you are about to forget them, until you get them right for good.</p>
+        <h3>Spaced repetition and Weak Spots</h3>
+        <p>Questions you miss come back right when you are about to forget them. Weak Spots drills your five weakest question groups.</p>
       </div>
       <div class="card accent-top">
         <span class="idx">05</span>
         <h3>Daily Net Check-In and awards</h3>
-        <p>10 questions, about 3 minutes a day, with a streak to keep alive. Earn Worked All Chapters, Pileup Buster, Elmer, 73 and more. Passed? Share an "I passed" card with your new call sign.</p>
+        <p>10 questions, about 3 minutes a day, with a streak to keep alive and a Home Screen and Lock Screen widget. Earn Worked All Chapters, Pileup Buster, Elmer, 73 and more. Passed? Share an "I passed" card with your new call sign.</p>
       </div>
       <div class="card accent-top">
         <span class="idx">06</span>
         <h3>Handy reference and exam finder</h3>
-        <p>Band privileges for Technician and General, key formulas, the phonetic alphabet and Q signals. Find an exam session near you and know what to bring.</p>
+        <p>Band privileges for every license class, key formulas, the phonetic alphabet and Q signals. Find an exam session near you and know what to bring.</p>
       </div>
     </div>
   </div>
@@ -204,7 +217,7 @@
           <li>All reference cards: bands, formulas, phonetics, Q signals</li>
         </ul>
       </div>
-      <div class="plans">
+      <div class="plans four">
         <div class="plan">
           <div class="name">Technician License</div>
           <div class="price">$4.99<small>once</small></div>
@@ -215,16 +228,22 @@
           <div class="price">$4.99<small>once</small></div>
           <div class="what">All 10 General chapters and unlimited practice exams.</div>
         </div>
+        <div class="plan">
+          <div class="name">Extra License</div>
+          <div class="price">$4.99<small>once</small></div>
+          <div class="what">All 10 Extra chapters and unlimited practice exams.</div>
+        </div>
         <div class="plan best">
           <span class="chip accent">Best value</span>
           <div class="name">All Licenses Bundle</div>
-          <div class="price">$7.99<small>once</small></div>
-          <div class="what">Technician and General together, for one price.</div>
+          <div class="price">$9.99<small>once</small></div>
+          <div class="what">Technician, General and Extra together, for one price.</div>
         </div>
         <div class="plan-note">
           <span>One-time purchase, no subscription</span>
           <span>Family Sharing included</span>
           <span>Restore Purchases on any new device</span>
+          <span>US prices; the App Store shows yours</span>
         </div>
       </div>
     </div>
@@ -262,7 +281,7 @@
     <div class="section-head cta-head">
       <p class="label accent">Get HamPrep</p>
       <h2 class="store-live">Ready when you are.</h2>
-      <p class="store-live">Free on the App Store for iPhone. Unlock a license whenever you are ready.</p>
+      <p class="store-live">Free on the App Store for iPhone and iPad. Unlock a license whenever you are ready.</p>
     </div>
     <div class="cta">
       <a class="store-badge store-live" href="https://apps.apple.com/app/id6830339051" aria-label="Download HamPrep on the App Store">
@@ -292,7 +311,7 @@
 <!-- ============ SHARED CHROME: footer (SLOT: legal line) ============ -->
 <footer class="footer">
   <div class="wrap">
-    <p class="legal">Question pools are published by the NCVEC Question Pool Committee and are in the public domain. HamPrep is not affiliated with the NCVEC, the FCC, or the ARRL. <span class="store-live">Apple, the Apple logo, and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</span></p>
+    <p class="legal">Question pools are published by the NCVEC Question Pool Committee and are in the public domain. HamPrep is not affiliated with the NCVEC, the FCC, or the ARRL. <span class="store-live">Apple, the Apple logo, iPhone, and iPad are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</span></p>
     <div class="row">
       <span>&copy; 2026 Trajectory Labs, LLC. All rights reserved.</span>
       <nav aria-label="Footer">

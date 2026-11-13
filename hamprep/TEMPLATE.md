@@ -61,8 +61,11 @@ python3 tools/prep_images.py --site . --icon ../brief/app-icon-1024.png \
   --shots ../brief/appstore-screenshots --hero m-1-home.png --og-shot m-2-explanation.png \
   --badge ../brief/apple-badge-black.svg --fonts ../fonts \
   --name HamPrep --headline "Pass your ham radio exam." --headline2 "Understand it too." \
-  --lead "Technician and General prep, every one of|832 questions explained. One-time purchase,|no subscription."
+  --label "TRAJECTORY LABS  ·  IPHONE AND IPAD" \
+  --lead "Technician, General and Extra prep, every one|of 1,431 questions explained. One-time|purchase, no subscription."
 ```
+
+Google Fonts now ships Manrope and JetBrains Mono only as variable fonts. For the 1.1 page (2026-11-12) the tool ran through a small wrapper that loads `Manrope[wght].ttf` at 800 and 500 and `JetBrainsMono[wght].ttf` at 400 with Pillow's `set_variation_by_axes`, in place of the static files. iPad shots: `crop_phone` also works on the 2752x2064 iPad frames (`shot-ipad.webp`, 1200px).
 
 `--fonts` points at a folder with `Manrope-800.ttf`, `Manrope-500.ttf` and `JetBrainsMono.ttf` (static TTFs from Google Fonts). `--accent r,g,b` and `--accent-ink #hex` set the OG card colors for a different app. `python3 tools/prep_images.py --help` lists everything. Steps it performs:
 
