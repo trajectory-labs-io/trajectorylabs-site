@@ -258,9 +258,6 @@ strong { font-weight: 700; }
 .card h3 { font-size: 19px; }
 .card p { color: var(--muted); font-size: 16px; }
 .card.accent-top::before { content: ""; width: 36px; height: 3px; border-radius: 2px; background: var(--accent); margin-bottom: 4px; }
-/* Card label (number or icon) sits on the same row as the title, never on a row of its own. TL standard for every site card. */
-.card:has(> .idx) { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; row-gap: 10px; align-items: baseline; }
-.card:has(> .idx)::before, .card:has(> .idx) > :not(.idx):not(h3) { grid-column: 1 / -1; }
 @media (max-width: 900px) { .grid, .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .grid, .grid.two { grid-template-columns: 1fr; } }
 
