@@ -13,7 +13,7 @@ The Trajectory Labs, LLC website: the homepage and one page per app.
 trajectorylabs.io runs on a Cloudflare Worker that serves these files from a pinned commit of this repo. To publish a change, push it here, then move the worker's pinned commit to the new one. Rolling back means pointing the worker at an earlier commit.
 
 HamPrep lives at trajectorylabs.io/hamprep/. The old address hamprep.trajectorylabs.io forwards there with a 301, handled by the same worker.
-The old hamprep-site repo still has GitHub Pages on; retiring it is Wes's call.
+The old hamprep-site repo is archived and its GitHub Pages is off (Nov 18, 2026); nothing is served from it.
 
 ## After an app's App Store release
 
