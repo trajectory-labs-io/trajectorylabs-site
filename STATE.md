@@ -1,8 +1,8 @@
 # STATE: trajectorylabs.io
 
 ## Where things stand
-- Live: Cloudflare Worker old-darkness-5aae serves this repo from a pinned commit (see README). Pinned to main 2b7971b since Nov 15, 2026.
-- Apps live on the App Store: Revest Analyzer, MythicRep, HamPrep (1.1). DishDecoded: coming soon (launch goal Dec 1, 2026).
+- Live: Cloudflare Worker old-darkness-5aae serves this repo from a pinned commit (see README). Pinned to main 2b7971b since Nov 15, 2026; every file served is identical to later main (d680903 and on change only STATE.md and README.md), checked Nov 18, 2026.
+- Apps live on the App Store: Revest Analyzer, MythicRep, HamPrep (1.1.1, live Nov 17, 2026; All Licenses Bundle $9.99, its "All licenses" description approved by Apple Nov 18). DishDecoded: coming soon (launch goal Dec 1, 2026).
 - Open: retire the old hamprep-site GitHub Pages (Wes's call). trajectorylabs.io/dishdecoded/ screenshot still shows a July date.
 
 ## Site design standards (all Trajectory Labs sites)
