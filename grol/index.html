@@ -1,0 +1,317 @@
+<!doctype html>
+<!-- ============================================================
+     Trajectory Labs app page (from the hamprep template, see hamprep/TEMPLATE.md).
+     Served at trajectorylabs.io/grol/. All links to the parent site are relative or absolute trajectorylabs.io.
+     Facts come from the grolprep repo (PRD.md, STATE.md, POOL-SOURCES.md, the pool and explanation JSON).
+     STORE STATE SWITCH: data-store="soon" (Coming soon pill, no badge, no store link)
+                         data-store="live" (Apple badge). At launch: add the App Store id in both badge links,
+                         uncomment the smart banner meta, confirm prices against App Store Connect,
+                         add screenshots, a privacy.html and a support.html.
+     ============================================================ -->
+<html lang="en" data-store="soon">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- SLOT: page meta -->
+<title>GROL Pass: FCC Commercial Radio Exam Prep for iPhone and iPad</title>
+<meta name="description" content="Practice for the FCC GROL and Ship Radar Endorsement exams (Elements 1, 3 and 8) with an explanation for every question and practice exams in the real format. Coming soon for iPhone and iPad.">
+<link rel="canonical" href="https://trajectorylabs.io/grol/">
+<meta name="theme-color" content="#f5f9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1513" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trajectory Labs">
+<meta property="og:title" content="GROL Pass: FCC Commercial Radio Exam Prep">
+<meta property="og:description" content="Elements 1, 3 and 8 with an explanation for every question. Free to start, one-time unlocks, no subscription. Coming soon.">
+<meta property="og:url" content="https://trajectorylabs.io/grol/">
+<meta property="og:image" content="https://trajectorylabs.io/grol/icon.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="GROL Pass app icon: a white radar scope on a teal to navy background">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GROL Pass: FCC Commercial Radio Exam Prep">
+<meta name="twitter:description" content="Elements 1, 3 and 8 with an explanation for every question. Free to start, one-time unlocks, no subscription. Coming soon.">
+<meta name="twitter:image" content="https://trajectorylabs.io/grol/icon.png">
+<!-- Smart App Banner: turn on at launch with the real id.
+<meta name="apple-itunes-app" content="app-id=APP_ID">
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../shared/app-page.css">
+<!-- SLOT: per-app accent. GROL Pass radar blue, from the app's teal to navy icon.
+     Light: --accent-ink #0b6584 is 6.2:1 on --bg #f5f9f7, 6.5:1 on white, 5.4:1 on --accent-soft #d7eef5.
+     Dark:  --accent-ink #5cc8e6 is 9.6:1 on #0b1513 and 7.2:1 on the dark --accent-soft #12303a.
+     Text on the #38b6d8 fill is dark ink (#0a1a24, 7.5:1) in both modes. -->
+<style>
+:root {
+  --accent: #38b6d8;
+  --accent-ink: #0b6584;
+  --accent-soft: #d7eef5;
+  --accent-glow: rgba(56, 182, 216, .22);
+  --accent-shadow: rgba(11, 101, 132, .4);
+  --on-accent: #0a1a24;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --accent-ink: #5cc8e6; --accent-soft: #12303a; --accent-glow: rgba(56, 182, 216, .2); --accent-shadow: rgba(56, 182, 216, .35); }
+}
+:root[data-theme="dark"] { --accent-ink: #5cc8e6; --accent-soft: #12303a; --accent-glow: rgba(56, 182, 216, .2); --accent-shadow: rgba(56, 182, 216, .35); }
+/* GROL only: no screenshots before launch, so the hero shows the app icon in place of a phone. */
+.hero-icon { position: relative; width: min(78%, 300px); height: auto; border-radius: 22.5%; box-shadow: 0 30px 60px -20px var(--accent-shadow), var(--shadow); }
+@media (max-width: 860px) { .hero-icon { width: min(56%, 220px); } }
+/* Three plans, not four */
+.plans.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { .plans.three { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ SHARED CHROME: nav (same on every app page) ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="https://trajectorylabs.io" aria-label="Trajectory Labs home">
+      <svg viewBox="0 0 564 771" aria-hidden="true"><rect x="0" y="0" width="234" height="184" rx="6" fill="var(--teal)"/><path d="M233 184 H564 V361 H421 V500 C421 552 462 588 520 588 H564 V771 C370 771 238 650 233 470 Z" fill="var(--mint)"/></svg>
+      Trajectory Labs
+    </a>
+    <!-- SLOT: app crumb -->
+    <span class="crumb"><span class="sep" aria-hidden="true">/</span><img src="assets/app-icon.webp" width="26" height="26" alt="">GROL Pass</span>
+    <nav class="nav-links" aria-label="Page">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#privacy">Privacy</a>
+      <a class="keep" href="https://trajectorylabs.io/#apps">More apps</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ============ HERO (SLOT: app identity, value prop, store CTA) ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="label">Learn &middot; iPhone and iPad &middot; FCC commercial exams</p>
+      <div class="app-id">
+        <img src="assets/app-icon.webp" width="76" height="76" alt="GROL Pass app icon: a white radar scope on a teal to navy background">
+        <div>
+          <div class="name">GROL Pass</div>
+          <div class="tag">FCC Commercial Radio Exam Prep</div>
+        </div>
+      </div>
+      <h1>Pass your GROL exams. <span class="accent">Know why it's right.</span></h1>
+      <p class="lead">Practice for FCC Elements 1, 3 and 8 with a plain-language explanation for every one of the 1,044 questions in the FCC's published pools. Free to start, one-time unlocks, no subscription.</p>
+
+      <div class="cta">
+        <span class="soon-pill store-soon"><span class="dot" aria-hidden="true"></span>Coming soon</span>
+        <!-- Live state: Apple's official badge, artwork untouched. Replace APP_ID at launch. -->
+        <a class="store-badge store-live" href="https://apps.apple.com/app/idAPP_ID" aria-label="Download GROL Pass on the App Store">
+          <img src="../shared/app-store-badge-black.svg" width="168" height="56" alt="Download on the App Store">
+        </a>
+        <a class="btn secondary" href="#features">See what's inside</a>
+      </div>
+      <p class="cta-note store-soon">Coming soon to the App Store for iPhone and iPad.</p>
+      <p class="cta-note store-live">Free download for iPhone and iPad. Unlock more with a one-time purchase, no subscription.</p>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="orb"></div>
+      <div class="dots"><i></i><i></i><i></i><i></i></div>
+      <img class="hero-icon" src="assets/hero-icon.webp" width="520" height="520" alt="" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS (SLOT: four numbers) ============ -->
+<section class="section" aria-label="At a glance">
+  <div class="wrap">
+    <div class="stats">
+      <div><div class="num accent">1,044</div><div class="what">Questions, all explained</div></div>
+      <div><div class="num">3</div><div class="what">Elements: 1, 3 and 8</div></div>
+      <div><div class="num">24, 100, 50</div><div class="what">Questions per practice exam, like the real ones</div></div>
+      <div><div class="num">$0</div><div class="what">To start: all of Element 1 is free</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES (SLOT: six cards) ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Features</p>
+      <h2>Learn it, don't just memorize it.</h2>
+      <p>Built for the exams you will actually sit, with the FCC's own questions and the real format.</p>
+    </div>
+    <div class="grid">
+      <div class="card accent-top">
+        <span class="idx">01</span>
+        <h3>Elements 1, 3 and 8</h3>
+        <p>Element 1, basic radio law and operating practice, and Element 3, general radiotelephone, for the General Radiotelephone Operator License (GROL). Element 8, ship radar techniques, for the Ship Radar Endorsement.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">02</span>
+        <h3>An explanation for all 1,044 questions</h3>
+        <p>Every question in the FCC's Element 1, 3 and 8 pools, word for word, with a plain-language explanation of why the right answer is right. The official figures are included, with pinch to zoom.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">03</span>
+        <h3>Practice exams in the real format</h3>
+        <p>One question from each key topic, just like exam day: 24 with 18 to pass for Element 1, 100 with 75 for Element 3, 50 with 38 for Element 8. Change answers until you submit, then review what you missed.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">04</span>
+        <h3>Spaced repetition and Weak Spots</h3>
+        <p>Questions you miss come back before you forget them, and a Weak Spots drill goes straight to the topics that need work.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">05</span>
+        <h3>Daily Check-In and awards</h3>
+        <p>10 questions, about 3 minutes a day, with a streak to keep and an optional daily reminder. Earn awards like On Watch, Clean Sweep and Perfect Copy along the way.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">06</span>
+        <h3>Readiness you can see</h3>
+        <p>Progress and exam readiness for each element, on iPhone and iPad, so you know when you are ready to book the exam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING (SLOT: free tier list, plans) ============ -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Pricing</p>
+      <h2>Free to start. Pay once for what you need.</h2>
+      <p>No subscription, no account, no ads. Planned prices at launch; the App Store will show the final price.</p>
+    </div>
+    <div class="pricing">
+      <div class="free">
+        <h3>Free</h3>
+        <p class="muted">Download and start studying.</p>
+        <div class="price">$0</div>
+        <ul class="check">
+          <li>All of Element 1: 144 questions and unlimited practice exams</li>
+          <li>The first subelement of Element 3 (48 questions)</li>
+          <li>The first subelement of Element 8 (60 questions)</li>
+          <li>Daily Check-In, streaks and awards</li>
+        </ul>
+      </div>
+      <div class="plans three">
+        <div class="plan">
+          <div class="name">Element 3</div>
+          <div class="price">$9.99<small>once</small></div>
+          <div class="what">All 600 Element 3 questions and unlimited practice exams. With the free Element 1, that covers the GROL.</div>
+        </div>
+        <div class="plan">
+          <div class="name">Element 8</div>
+          <div class="price">$4.99<small>once</small></div>
+          <div class="what">All 300 Element 8 questions and unlimited practice exams, for the Ship Radar Endorsement.</div>
+        </div>
+        <div class="plan best">
+          <span class="chip accent">Best value</span>
+          <div class="name">Elements 3 and 8</div>
+          <div class="price">$12.99<small>once</small></div>
+          <div class="what">Both unlocks together, $1.99 less than buying them separately.</div>
+        </div>
+        <div class="plan-note">
+          <span>One-time purchase, no subscription</span>
+          <span>Restore Purchases on any new device</span>
+          <span>Planned US prices</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIVACY SUMMARY (SLOT: three facts) ============ -->
+<section class="section" id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Privacy</p>
+      <h2>Your studying stays yours.</h2>
+      <p>Nothing to sign up for, and nothing sent to us.</p>
+    </div>
+    <div class="privacy-strip">
+      <div class="card">
+        <span class="big">No account</span>
+        <p>Nothing to sign up for. Open the app and start on question one.</p>
+      </div>
+      <div class="card">
+        <span class="big">No ads, no tracking</span>
+        <p>No analytics, no advertising, and nothing is sent to Trajectory Labs.</p>
+      </div>
+      <div class="card">
+        <span class="big">Works offline</span>
+        <p>Study anywhere. Optional iCloud sync keeps your progress on your own devices, in your own iCloud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECOND CTA (store state aware) ============ -->
+<section class="section" aria-label="Get the app">
+  <div class="wrap">
+    <div class="section-head cta-head">
+      <p class="label accent">Get GROL Pass</p>
+      <h2 class="store-soon">Almost cleared for launch.</h2>
+      <p class="store-soon">GROL Pass is in final testing. The App Store link will appear here when it launches.</p>
+      <h2 class="store-live">Ready when you are.</h2>
+      <p class="store-live">Free on the App Store for iPhone and iPad. Unlock more whenever you are ready.</p>
+    </div>
+    <div class="cta">
+      <a class="store-badge store-live" href="https://apps.apple.com/app/idAPP_ID" aria-label="Download GROL Pass on the App Store">
+        <img src="../shared/app-store-badge-black.svg" width="168" height="56" alt="Download on the App Store" loading="lazy">
+      </a>
+      <a class="btn secondary" href="https://trajectorylabs.io/#apps">More apps from Trajectory Labs</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ SHARED CHROME: contact band ============ -->
+<section class="band" id="support">
+  <div class="wrap">
+    <div>
+      <p class="label">Questions</p>
+      <h2>Want to know more before launch?</h2>
+      <p>Email us and we will reply within two business days.</p>
+    </div>
+    <div class="band-mail">
+      <a class="mail" href="mailto:support@trajectorylabs.io">support@trajectorylabs.io</a>
+      <button class="btn secondary" type="button" data-copy="support@trajectorylabs.io" hidden>Copy email</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHARED CHROME: footer (SLOT: legal line) ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <p class="legal">Questions come from the FCC's published Element 1, 3 and 8 question pools. GROL Pass is not affiliated with or endorsed by the FCC. <span class="store-live">Apple, the Apple logo, iPhone, and iPad are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</span></p>
+    <div class="row">
+      <span>&copy; 2026 Trajectory Labs, LLC. All rights reserved.</span>
+      <nav aria-label="Footer">
+        <a href="mailto:support@trajectorylabs.io">Support</a>
+        <a href="https://trajectorylabs.io">Trajectory Labs</a>
+      </nav>
+      <span>Made in Oklahoma</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Copy email button: only shown when the clipboard API exists. Pure enhancement.
+(function () {
+  var b = document.querySelector('[data-copy]');
+  if (!b || !navigator.clipboard) return;
+  b.hidden = false;
+  b.addEventListener('click', function () {
+    navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
+      var t = b.textContent; b.textContent = 'Copied'; b.setAttribute('data-done', '');
+      setTimeout(function () { b.textContent = t; b.removeAttribute('data-done'); }, 1800);
+    });
+  });
+})();
+</script>
+</body>
+</html>
