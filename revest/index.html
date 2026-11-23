@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- SLOT: page meta -->
 <title>Revest Analyzer: Investment Property Calculator for iPhone and iPad</title>
-<meta name="description" content="Rental, house flip and BRRRR analysis for iPhone and iPad, with a Deal Score out of 100 on every analysis. Free to download, unlimited analyses free, optional Pro subscription.">
+<meta name="description" content="Rental, house flip and BRRRR analysis for iPhone, iPad and the web, with a Deal Score out of 100 on every deal. Free to download with unlimited analyses. Pro adds unlimited saved deals, comparisons and 5-year projections.">
 <link rel="canonical" href="https://trajectorylabs.io/revest/">
 <meta name="theme-color" content="#f5f9f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b1513" media="(prefers-color-scheme: dark)">
@@ -22,15 +22,15 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Trajectory Labs">
 <meta property="og:title" content="Revest Analyzer: Investment Property Calculator">
-<meta property="og:description" content="Rental, house flip and BRRRR analysis with a Deal Score out of 100. Free to download, unlimited analyses free.">
+<meta property="og:description" content="Analyze rental, flip and BRRRR deals in seconds, with a Deal Score out of 100. Free to download, unlimited analyses free.">
 <meta property="og:url" content="https://trajectorylabs.io/revest/">
 <meta property="og:image" content="https://trajectorylabs.io/revest/icon.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
-<meta property="og:image:alt" content="Revest Analyzer app icon: a green house outline around a rising bar chart">
+<meta property="og:image:alt" content="Revest Analyzer app icon: a white roof over three rising bars, the tallest in gold, on green">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Revest Analyzer: Investment Property Calculator">
-<meta name="twitter:description" content="Rental, house flip and BRRRR analysis with a Deal Score out of 100. Free to download, unlimited analyses free.">
+<meta name="twitter:description" content="Analyze rental, flip and BRRRR deals in seconds, with a Deal Score out of 100. Free to download, unlimited analyses free.">
 <meta name="twitter:image" content="https://trajectorylabs.io/revest/icon.png">
 <!-- SMART BANNER: the app is live. -->
 <meta name="apple-itunes-app" content="app-id=6760630054">
@@ -38,10 +38,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../shared/app-page.css">
-<!-- SLOT: per-app accent. Revest green from the app icon (#2c5f2d).
+<!-- SLOT: per-app accent. Revest green (#2c5f2d, the app's header green; the 1.3 icon runs #3e8540 to #1e4420).
      Light: --accent-ink #2c5f2d is 7.1:1 on --bg #f5f9f7 and 7.5:1 on white, 6.5:1 on --accent-soft.
-     Dark:  --accent-ink #7cc47f is 8.9:1 on #0b1513 and 8.1:1 on #111f1c, 6.8:1 on the dark --accent-soft.
-     The icon green is dark, so text on --accent fills is white in light mode; dark mode lifts the fill to #5aa85d with dark ink (6.4:1). -->
+     Dark: the greens of the dark app icon. --accent-ink #9ad597 is 10.9:1 on #0b1513, 10.0:1 on #111f1c, 8.4:1 on --accent-soft; --accent fill #6db86a with dark ink #0b1513 is 7.7:1.
+     The light icon green is dark, so text on --accent fills is white in light mode. -->
 <style>
 :root {
   --accent: #2c5f2d;
@@ -53,19 +53,19 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --accent: #5aa85d; --accent-ink: #7cc47f; --accent-soft: #16301a;
-    --accent-glow: rgba(90, 168, 93, .22); --accent-shadow: rgba(90, 168, 93, .45); --on-accent: #0b1513;
+    --accent: #6db86a; --accent-ink: #9ad597; --accent-soft: #16301a;
+    --accent-glow: rgba(109, 184, 106, .22); --accent-shadow: rgba(109, 184, 106, .45); --on-accent: #0b1513;
   }
 }
 :root[data-theme="dark"] {
-  --accent: #5aa85d; --accent-ink: #7cc47f; --accent-soft: #16301a;
-  --accent-glow: rgba(90, 168, 93, .22); --accent-shadow: rgba(90, 168, 93, .45); --on-accent: #0b1513;
+  --accent: #6db86a; --accent-ink: #9ad597; --accent-soft: #16301a;
+  --accent-glow: rgba(109, 184, 106, .22); --accent-shadow: rgba(109, 184, 106, .45); --on-accent: #0b1513;
 }
 /* Two Pro plans instead of the template's three */
 .plans.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 600px) { .plans.two { grid-template-columns: 1fr; } }
 /* Match the drawn device corners in the screenshots (corner radius is 14.5% of the width) */
-.shot img, .hero-phone { border-radius: 14.5% / 6.95%; }
+.shot img, .hero-phone { border-radius: 14.5% / 6.92%; }
 /* Four screenshots instead of the template's five */
 @media (min-width: 901px) { .shots { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 </style>
@@ -105,14 +105,14 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
     <div class="hero-copy">
       <p class="label">Decide &middot; iPhone and iPad &middot; Real estate</p>
       <div class="app-id">
-        <img src="assets/app-icon.webp" width="76" height="76" alt="Revest Analyzer app icon: a green house outline around a rising bar chart">
+        <img src="assets/app-icon.webp" width="76" height="76" alt="Revest Analyzer app icon: a white roof over three rising bars, the tallest in gold, on green">
         <div>
           <div class="name">Revest Analyzer</div>
           <div class="tag">Investment Property Calculator</div>
         </div>
       </div>
-      <h1>Run the numbers. <span class="accent">Make smarter deals, faster.</span></h1>
-      <p class="lead">Rental, house flip and BRRRR analysis with a Deal Score out of 100 on every property. Free to download, and unlimited analyses are free.</p>
+      <h1>Analyze any real estate deal <span class="accent">in seconds.</span></h1>
+      <p class="lead">Rental, house flip and BRRRR analysis with a Deal Score out of 100 on every deal, on iPhone, iPad or right in your browser. Free to download, and unlimited analyses are free.</p>
 
       <div class="cta">
         <!-- Coming-soon state: no link, no badge -->
@@ -130,7 +130,7 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
     <div class="hero-art" aria-hidden="true">
       <div class="orb"></div>
       <div class="dots"><i></i><i></i><i></i><i></i></div>
-      <img class="hero-phone" src="assets/hero-phone.webp" width="760" height="1585" alt="" fetchpriority="high">
+      <img class="hero-phone" src="assets/hero-phone.webp" width="708" height="1482" alt="" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -140,14 +140,14 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
   <div class="wrap">
     <div class="stats">
       <div><div class="num accent">3</div><div class="what">Strategies: rental, flip, BRRRR</div></div>
-      <div><div class="num">100</div><div class="what">Point Deal Score on every analysis</div></div>
-      <div><div class="num">5-year</div><div class="what">Value and rent projections</div></div>
-      <div><div class="num">PDF</div><div class="what">Reports for each strategy</div></div>
+      <div><div class="num">100</div><div class="what">Point Deal Score, with the math shown</div></div>
+      <div><div class="num">5-year</div><div class="what">Equity, cash flow and return projections</div></div>
+      <div><div class="num">Free</div><div class="what">Unlimited analyses</div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ SCREENSHOTS (SLOT: five figures). Sample properties from the app's marketing screenshots. ============ -->
+<!-- ============ SCREENSHOTS (SLOT: four figures). Sample properties from the app's 1.3 marketing screenshots. ============ -->
 <section class="section" id="inside">
   <div class="wrap">
     <div class="section-head">
@@ -157,20 +157,20 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
     </div>
     <div class="shots">
       <figure class="shot">
-        <img src="assets/shot-rental.webp" width="520" height="1085" loading="lazy" decoding="async" alt="Rental analysis results for a sample Columbus rental: Deal Score 76 out of 100, monthly cash flow of 381 dollars, cash-on-cash return of 14.12 percent and a 9.65 percent cap rate">
-        <figcaption><b>Rental results</b>Deal Score, cash flow, cash-on-cash return, cap rate and DSCR.</figcaption>
+        <img src="assets/shot-home.webp" width="518" height="1086" loading="lazy" decoding="async" alt="Home screen with the three analysis types: rental, house flipping and BRRRR">
+        <figcaption><b>Pick a strategy</b>Rental, house flip or BRRRR, each with its own analysis.</figcaption>
       </figure>
       <figure class="shot">
-        <img src="assets/shot-flip.webp" width="520" height="1085" loading="lazy" decoding="async" alt="House flip results for a sample Detroit flip: Deal Score 100 out of 100, net profit of 37,412 dollars, simple ROI of 67.35 percent and annualized ROI of 180.06 percent">
-        <figcaption><b>Flip results</b>Net profit, ROI and the maximum allowable offer.</figcaption>
+        <img src="assets/shot-projection.webp" width="518" height="1086" loading="lazy" decoding="async" alt="5-year projection for a sample Columbus triplex: 104,804 dollars total return from appreciation, loan paydown and cash flow, with a year-by-year table">
+        <figcaption><b>5-year projection</b>Value, equity and total return year by year. A Pro feature.</figcaption>
       </figure>
       <figure class="shot">
-        <img src="assets/shot-compare-scores.webp" width="520" height="1085" loading="lazy" decoding="async" alt="Property comparison of three sample rentals with overall scores of 95, 80 and 76, the top one marked Best Pick, above a cap rate comparison chart">
-        <figcaption><b>Compare side by side</b>See which property scores best. A Pro feature.</figcaption>
+        <img src="assets/shot-compare.webp" width="518" height="1086" loading="lazy" decoding="async" alt="Comparison of three sample rentals scored 85, 74 and 47, with the best pick explained and a side-by-side metric table">
+        <figcaption><b>Compare up to 3 deals</b>The best pick, why it won, and the best value in every row. A Pro feature.</figcaption>
       </figure>
       <figure class="shot">
-        <img src="assets/shot-compare-metrics.webp" width="520" height="1085" loading="lazy" decoding="async" alt="Metric breakdown comparing cap rate, monthly cash flow, cash-on-cash return, DSCR and the 1 percent rule across three sample rentals, with the leader in each marked">
-        <figcaption><b>Metric by metric</b>Every key number lined up across your properties. A Pro feature.</figcaption>
+        <img src="assets/shot-properties.webp" width="518" height="1086" loading="lazy" decoding="async" alt="My Properties list of saved sample deals with photos and deal scores, filtered by type and sorted by date, score or price">
+        <figcaption><b>Your saved deals</b>Photos and scores, with search, filters and sorting.</figcaption>
       </figure>
     </div>
   </div>
@@ -182,38 +182,38 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
     <div class="section-head">
       <p class="label">Features</p>
       <h2>Three strategies, one clear score.</h2>
-      <p>Built for your first rental or your fiftieth flip. Set default preferences to match your market, then run the numbers.</p>
+      <p>Built for your first rental or your fiftieth flip. Set your expense rates, financing terms and targets once, and every new analysis starts from them.</p>
     </div>
     <div class="grid">
       <div class="card accent-top">
         <span class="idx">01</span>
         <h3>Rental analysis</h3>
-        <p>Cash flow, cap rate, cash-on-cash return and DSCR for buy-and-hold properties.</p>
+        <p>Cash flow, cash-on-cash return, cap rate, DSCR, NOI and the 1% rule for buy-and-hold properties.</p>
       </div>
       <div class="card accent-top">
         <span class="idx">02</span>
         <h3>House flip analysis</h3>
-        <p>Net profit, ROI and the maximum allowable offer, so you know your number before you bid.</p>
+        <p>Net profit, ROI, annualized ROI and the maximum allowable offer, so you know your number before you bid.</p>
       </div>
       <div class="card accent-top">
         <span class="idx">03</span>
         <h3>BRRRR analysis</h3>
-        <p>Buy, rehab, rent, refinance: see the equity created, the cash returned and how the property performs after the refinance.</p>
+        <p>Buy, rehab, rent, refinance, repeat: see the cash you put in, how much comes back at the refinance, the equity created and the cash flow after.</p>
       </div>
       <div class="card accent-top">
         <span class="idx">04</span>
-        <h3>A Deal Score out of 100</h3>
-        <p>Every analysis gets a score, so deals of different shapes are easy to weigh against each other.</p>
+        <h3>A Deal Score you can check</h3>
+        <p>Every deal gets a score out of 100 with a plain-English summary, and you can see exactly how it's calculated.</p>
       </div>
       <div class="card accent-top">
         <span class="idx">05</span>
         <h3>Save, sort and compare</h3>
-        <p>Keep your properties in one place and compare several side by side. Included with Pro.</p>
+        <p>Save deals with photos, synced across iPhone, iPad and the web. Free accounts keep 3 deals. Pro keeps them all and ranks up to 3 side by side.</p>
       </div>
       <div class="card accent-top">
         <span class="idx">06</span>
         <h3>Projections and PDF reports</h3>
-        <p>5-year property value and rent growth projections from your own market assumptions, and professional PDF reports tailored to each strategy. Included with Pro.</p>
+        <p>PDF reports to share with partners, lenders or your agent. Pro adds 5-year projections from your own appreciation and rent growth assumptions.</p>
       </div>
     </div>
   </div>
@@ -225,7 +225,7 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
     <div class="section-head">
       <p class="label">Pricing</p>
       <h2>Free to analyze. Pro when you need more.</h2>
-      <p>Run as many rental, flip and BRRRR analyses as you like for free. Pro is an optional subscription that adds saving, comparisons, PDF export and 5-year projections.</p>
+      <p>Run as many rental, flip and BRRRR analyses as you like for free. Pro is an optional subscription for unlimited saved deals, comparisons, 5-year projections and clean PDF reports.</p>
     </div>
     <div class="pricing">
       <div class="free">
@@ -233,23 +233,23 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
         <p class="muted">Download and analyze your first deal today.</p>
         <div class="price">$0</div>
         <ul class="check">
-          <li>Unlimited rental analyses</li>
-          <li>Unlimited house flip analyses</li>
-          <li>Unlimited BRRRR analyses</li>
+          <li>Unlimited rental, flip and BRRRR analyses</li>
           <li>A Deal Score out of 100 on every analysis</li>
+          <li>Save up to 3 deals</li>
+          <li>PDF reports with a Revest Analyzer footer</li>
         </ul>
       </div>
       <div class="plans two">
         <div class="plan">
           <div class="name">Pro Monthly</div>
           <div class="price">$9.99<small>per month</small></div>
-          <div class="what">Saving, comparisons, PDF export and 5-year projections.</div>
+          <div class="what">Unlimited saved deals, comparisons, 5-year projections and clean PDF reports.</div>
         </div>
         <div class="plan best">
           <span class="chip accent">Best value</span>
           <div class="name">Pro Annual</div>
           <div class="price">$79.99<small>per year</small></div>
-          <div class="what">Everything in Pro, billed once a year.</div>
+          <div class="what">Everything in Pro, billed once a year. About $6.67 a month, 33% less than monthly.</div>
         </div>
         <div class="plan-note">
           <span>14-day free trial of Pro</span>
