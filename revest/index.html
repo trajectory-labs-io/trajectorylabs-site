@@ -1,24 +1,19 @@
 <!doctype html>
-<!-- ============================================================
-     Trajectory Labs app page (from the hamprep-site template, see TEMPLATE.md).
-     Served at trajectorylabs.io/revest/. All links to the parent site are relative.
-     STORE STATE SWITCH: data-store="soon" (no badge)
-                         data-store="live" (Apple badge, store link)
-     ============================================================ -->
-<html lang="en" data-store="live">
+<!-- Trajectory Labs page for Revest Analyzer, served at trajectorylabs.io/revest/.
+     Matches the 1.3 redesign: it uses Revest's own design system (revest.css is a copy of
+     revest-analyzer-web/marketing/style.css; refresh it from there when that site changes).
+     Screens are the marketing site's screenshots as webp. Page-only additions are in the style block. -->
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!-- SLOT: page meta -->
 <title>Revest Analyzer: Investment Property Calculator for iPhone and iPad</title>
 <meta name="description" content="Rental, house flip and BRRRR analysis for iPhone, iPad and the web, with a Deal Score out of 100 on every deal. Free to download with unlimited analyses. Pro adds unlimited saved deals, comparisons and 5-year projections.">
 <link rel="canonical" href="https://trajectorylabs.io/revest/">
-<meta name="theme-color" content="#f5f9f7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0b1513" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<!-- Open Graph / Twitter. No 1200x630 card yet (the Manrope TTFs for tools/prep_images.py were not available),
-     so this uses the square icon with a summary card. Swap in assets/og-card.jpg and summary_large_image later. -->
+<meta name="theme-color" content="#F8FAF5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon-v13.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon-v13.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Trajectory Labs">
 <meta property="og:title" content="Revest Analyzer: Investment Property Calculator">
@@ -32,325 +27,622 @@
 <meta name="twitter:title" content="Revest Analyzer: Investment Property Calculator">
 <meta name="twitter:description" content="Analyze rental, flip and BRRRR deals in seconds, with a Deal Score out of 100. Free to download, unlimited analyses free.">
 <meta name="twitter:image" content="https://trajectorylabs.io/revest/icon.png">
-<!-- SMART BANNER: the app is live. -->
 <meta name="apple-itunes-app" content="app-id=6760630054">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="../shared/app-page.css">
-<!-- SLOT: per-app accent. Revest green (#2c5f2d, the app's header green; the 1.3 icon runs #3e8540 to #1e4420).
-     Light: --accent-ink #2c5f2d is 7.1:1 on --bg #f5f9f7 and 7.5:1 on white, 6.5:1 on --accent-soft.
-     Dark: the greens of the dark app icon. --accent-ink #9ad597 is 10.9:1 on #0b1513, 10.0:1 on #111f1c, 8.4:1 on --accent-soft; --accent fill #6db86a with dark ink #0b1513 is 7.7:1.
-     The light icon green is dark, so text on --accent fills is white in light mode. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="revest.css">
 <style>
-:root {
-  --accent: #2c5f2d;
-  --accent-ink: #2c5f2d;
-  --accent-soft: #e6f0e6;
-  --accent-glow: rgba(44, 95, 45, .18);
-  --accent-shadow: rgba(44, 95, 45, .45);
-  --on-accent: #ffffff;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --accent: #6db86a; --accent-ink: #9ad597; --accent-soft: #16301a;
-    --accent-glow: rgba(109, 184, 106, .22); --accent-shadow: rgba(109, 184, 106, .45); --on-accent: #0b1513;
-  }
-}
-:root[data-theme="dark"] {
-  --accent: #6db86a; --accent-ink: #9ad597; --accent-soft: #16301a;
-  --accent-glow: rgba(109, 184, 106, .22); --accent-shadow: rgba(109, 184, 106, .45); --on-accent: #0b1513;
-}
-/* Two Pro plans instead of the template's three */
-.plans.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-@media (max-width: 600px) { .plans.two { grid-template-columns: 1fr; } }
-/* Match the drawn device corners in the screenshots (corner radius is 14.5% of the width) */
-.shot img, .hero-phone { border-radius: 14.5% / 6.92%; }
-/* Four screenshots instead of the template's five */
-@media (min-width: 901px) { .shots { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* Page-only additions on top of revest.css */
+.nav__logo { color: var(--green-text); }
+.support { padding: 72px 0; }
+.support__inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.support__inner > div { max-width: 620px; }
+.support__inner p { margin-bottom: 0; }
+.btn--gold { background: var(--gold); color: #1e4220; border-color: var(--gold); font-weight: 700; }
+.btn--gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); color: #1e4220; transform: translateY(-1px); }
+#privacy .section-header a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 640px) { .nav__actions .btn--outline { padding: 9px 14px; font-size: .85rem; } }
 </style>
-<link rel="preload" as="image" href="assets/hero-phone.webp" type="image/webp">
-<script>
-// Always open at the top unless the link points at a section (#...).
-if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function () { window.scrollTo(0, 0); }); }
-</script>
+<script src="anim.js"></script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ============ SHARED CHROME: nav (same on every app page) ============ -->
-<header class="nav">
-  <div class="wrap">
-    <a class="brand" href="../" aria-label="Trajectory Labs home">
-      <svg viewBox="0 0 564 771" aria-hidden="true"><rect x="0" y="0" width="234" height="184" rx="6" fill="var(--teal)"/><path d="M233 184 H564 V361 H421 V500 C421 552 462 588 520 588 H564 V771 C370 771 238 650 233 470 Z" fill="var(--mint)"/></svg>
-      Trajectory Labs
-    </a>
-    <!-- SLOT: app crumb -->
-    <span class="crumb"><span class="sep" aria-hidden="true">/</span><img src="assets/app-icon.webp" width="26" height="26" alt="">Revest Analyzer</span>
-    <nav class="nav-links" aria-label="Page">
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#support">Support</a>
-      <a class="keep" href="../#apps">More apps</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-<!-- ============ HERO (SLOT: app identity, value prop, store CTA) ============ -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-copy">
-      <p class="label">Decide &middot; iPhone and iPad &middot; Real estate</p>
-      <div class="app-id">
-        <img src="assets/app-icon.webp" width="76" height="76" alt="Revest Analyzer app icon: a white roof over three rising bars, the tallest in gold, on green">
-        <div>
-          <div class="name">Revest Analyzer</div>
-          <div class="tag">Investment Property Calculator</div>
-        </div>
-      </div>
-      <h1>Analyze any real estate deal <span class="accent">in seconds.</span></h1>
-      <p class="lead">Rental, house flip and BRRRR analysis with a Deal Score out of 100 on every deal, on iPhone, iPad or right in your browser. Free to download, and unlimited analyses are free.</p>
-
-      <div class="cta">
-        <!-- Coming-soon state: no link, no badge -->
-        <span class="soon-pill store-soon"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</span>
-        <!-- Live state: Apple's official badge, artwork untouched -->
-        <a class="store-badge store-live" href="https://apps.apple.com/us/app/revest-analyzer/id6760630054" aria-label="Download Revest Analyzer on the App Store">
-          <img src="../shared/app-store-badge-black.svg" width="168" height="56" alt="Download on the App Store">
+  <header class="nav" role="banner">
+    <div class="container">
+      <nav class="nav__inner" aria-label="Main navigation">
+        <a href="#top" class="nav__logo" aria-label="Revest Analyzer, top of page">
+          <svg viewBox="160 210 704 596" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M212 520 L512 262 L812 520" fill="none" stroke="currentColor" stroke-width="72" stroke-linecap="round" stroke-linejoin="round" />
+            <rect x="318" y="664" width="108" height="126" rx="26" fill="currentColor" />
+            <rect x="458" y="590" width="108" height="200" rx="26" fill="currentColor" />
+            <rect x="598" y="510" width="108" height="280" rx="26" fill="#D4A017" />
+          </svg>
+          <span>
+            <span class="nav__logo-text">Revest Analyzer</span>
+            <span class="nav__logo-sub">Real Estate Deal Analyzer</span>
+          </span>
         </a>
-        <a class="btn secondary" href="https://revestanalyzer.com">Use it on the web at revestanalyzer.com</a>
-      </div>
-      <p class="cta-note store-soon">Built for iPhone and iPad.</p>
-      <p class="cta-note store-live">Free download for iPhone and iPad. Pro is an optional subscription with a 14-day free trial.</p>
-    </div>
-
-    <div class="hero-art" aria-hidden="true">
-      <div class="orb"></div>
-      <div class="dots"><i></i><i></i><i></i><i></i></div>
-      <img class="hero-phone" src="assets/hero-phone.webp" width="708" height="1482" alt="" fetchpriority="high">
-    </div>
-  </div>
-</section>
-
-<!-- ============ STATS (SLOT: four numbers, facts from the App Store listing only) ============ -->
-<section class="section" aria-label="At a glance">
-  <div class="wrap">
-    <div class="stats">
-      <div><div class="num accent">3</div><div class="what">Strategies: rental, flip, BRRRR</div></div>
-      <div><div class="num">100</div><div class="what">Point Deal Score, with the math shown</div></div>
-      <div><div class="num">5-year</div><div class="what">Equity, cash flow and return projections</div></div>
-      <div><div class="num">Free</div><div class="what">Unlimited analyses</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SCREENSHOTS (SLOT: four figures). Sample properties from the app's 1.3 marketing screenshots. ============ -->
-<section class="section" id="inside">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="label">What's inside</p>
-      <h2>Enter the deal. Get the verdict.</h2>
-      <p>Pick a strategy, fill in the numbers, and see the metrics that matter with a score you can compare.</p>
-    </div>
-    <div class="shots">
-      <figure class="shot">
-        <img src="assets/shot-home.webp" width="518" height="1086" loading="lazy" decoding="async" alt="Home screen with the three analysis types: rental, house flipping and BRRRR">
-        <figcaption><b>Pick a strategy</b>Rental, house flip or BRRRR, each with its own analysis.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="assets/shot-projection.webp" width="518" height="1086" loading="lazy" decoding="async" alt="5-year projection for a sample Columbus triplex: 104,804 dollars total return from appreciation, loan paydown and cash flow, with a year-by-year table">
-        <figcaption><b>5-year projection</b>Value, equity and total return year by year. A Pro feature.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="assets/shot-compare.webp" width="518" height="1086" loading="lazy" decoding="async" alt="Comparison of three sample rentals scored 85, 74 and 47, with the best pick explained and a side-by-side metric table">
-        <figcaption><b>Compare up to 3 deals</b>The best pick, why it won, and the best value in every row. A Pro feature.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="assets/shot-properties.webp" width="518" height="1086" loading="lazy" decoding="async" alt="My Properties list of saved sample deals with photos and deal scores, filtered by type and sorted by date, score or price">
-        <figcaption><b>Your saved deals</b>Photos and scores, with search, filters and sorting.</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FEATURES (SLOT: six cards) ============ -->
-<section class="section" id="features">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="label">Features</p>
-      <h2>Three strategies, one clear score.</h2>
-      <p>Built for your first rental or your fiftieth flip. Set your expense rates, financing terms and targets once, and every new analysis starts from them.</p>
-    </div>
-    <div class="grid">
-      <div class="card accent-top">
-        <span class="idx">01</span>
-        <h3>Rental analysis</h3>
-        <p>Cash flow, cash-on-cash return, cap rate, DSCR, NOI and the 1% rule for buy-and-hold properties.</p>
-      </div>
-      <div class="card accent-top">
-        <span class="idx">02</span>
-        <h3>House flip analysis</h3>
-        <p>Net profit, ROI, annualized ROI and the maximum allowable offer, so you know your number before you bid.</p>
-      </div>
-      <div class="card accent-top">
-        <span class="idx">03</span>
-        <h3>BRRRR analysis</h3>
-        <p>Buy, rehab, rent, refinance, repeat: see the cash you put in, how much comes back at the refinance, the equity created and the cash flow after.</p>
-      </div>
-      <div class="card accent-top">
-        <span class="idx">04</span>
-        <h3>A Deal Score you can check</h3>
-        <p>Every deal gets a score out of 100 with a plain-English summary, and you can see exactly how it's calculated.</p>
-      </div>
-      <div class="card accent-top">
-        <span class="idx">05</span>
-        <h3>Save, sort and compare</h3>
-        <p>Save deals with photos, synced across iPhone, iPad and the web. Free accounts keep 3 deals. Pro keeps them all and ranks up to 3 side by side.</p>
-      </div>
-      <div class="card accent-top">
-        <span class="idx">06</span>
-        <h3>Projections and PDF reports</h3>
-        <p>PDF reports to share with partners, lenders or your agent. Pro adds 5-year projections from your own appreciation and rent growth assumptions.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRICING (SLOT: free tier list, plans). Prices from the US App Store listing. ============ -->
-<section class="section" id="pricing">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="label">Pricing</p>
-      <h2>Free to analyze. Pro when you need more.</h2>
-      <p>Run as many rental, flip and BRRRR analyses as you like for free. Pro is an optional subscription for unlimited saved deals, comparisons, 5-year projections and clean PDF reports.</p>
-    </div>
-    <div class="pricing">
-      <div class="free">
-        <h3>Free</h3>
-        <p class="muted">Download and analyze your first deal today.</p>
-        <div class="price">$0</div>
-        <ul class="check">
-          <li>Unlimited rental, flip and BRRRR analyses</li>
-          <li>A Deal Score out of 100 on every analysis</li>
-          <li>Save up to 3 deals</li>
-          <li>PDF reports with a Revest Analyzer footer</li>
-        </ul>
-      </div>
-      <div class="plans two">
-        <div class="plan">
-          <div class="name">Pro Monthly</div>
-          <div class="price">$9.99<small>per month</small></div>
-          <div class="what">Unlimited saved deals, comparisons, 5-year projections and clean PDF reports.</div>
+        <div class="nav__links">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#support">Support</a>
+          <a href="../#apps">More apps</a>
         </div>
-        <div class="plan best">
-          <span class="chip accent">Best value</span>
-          <div class="name">Pro Annual</div>
-          <div class="price">$79.99<small>per year</small></div>
-          <div class="what">Everything in Pro, billed once a year. About $6.67 a month, 33% less than monthly.</div>
+        <div class="nav__actions">
+          <a href="https://revestanalyzer.com" class="btn btn--outline" aria-label="Use Revest Analyzer on the web at revestanalyzer.com">Web app</a>
+          <a href="https://apps.apple.com/us/app/revest-analyzer/id6760630054" class="appstore-badge" aria-label="Download Revest Analyzer on the App Store"><img src="app-store-badge.svg" alt="Download on the App Store" width="120" height="40" /></a>
         </div>
-        <div class="plan-note">
-          <span>14-day free trial of Pro</span>
-          <span>Auto-renewing subscription, cancel anytime in App Store settings</span>
-          <span>Prices in US dollars</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRIVACY SUMMARY (SLOT: three facts from the App Privacy label, link to the app's policy) ============ -->
-<section class="section" id="privacy">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="label">Privacy</p>
-      <h2>A little data for your account. No tracking.</h2>
-      <p>Revest Analyzer uses an account, so it keeps a small amount of information linked to you. Here is what the App Store privacy label lists. <a href="https://revestanalyzer.com/privacy">Read the full privacy policy</a>.</p>
-    </div>
-    <div class="privacy-strip">
-      <div class="card">
-        <span class="big">Email and name</span>
-        <p>You sign in with an account. Your email address, your name and a user ID are linked to you.</p>
-      </div>
-      <div class="card">
-        <span class="big">No tracking</span>
-        <p>Nothing is used to track you across other companies' apps or websites.</p>
-      </div>
-      <div class="card">
-        <span class="big">Used for three things</span>
-        <p>That information is used to run the app, for analytics and for Trajectory Labs' own marketing, as listed on the App Store privacy label.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECOND CTA (store state aware) ============ -->
-<section class="section" aria-label="Get the app">
-  <div class="wrap">
-    <div class="section-head cta-head">
-      <p class="label accent">Get Revest Analyzer</p>
-      <h2 class="store-soon">Almost ready.</h2>
-      <h2 class="store-live">Ready for your next deal.</h2>
-      <p class="store-soon">This page will carry the App Store link once the app is available.</p>
-      <p class="store-live">Free on the App Store for iPhone and iPad, and on the web at <a href="https://revestanalyzer.com">revestanalyzer.com</a>.</p>
-    </div>
-    <div class="cta">
-      <span class="soon-pill store-soon"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</span>
-      <a class="store-badge store-live" href="https://apps.apple.com/us/app/revest-analyzer/id6760630054" aria-label="Download Revest Analyzer on the App Store">
-        <img src="../shared/app-store-badge-black.svg" width="168" height="56" alt="Download on the App Store" loading="lazy">
-      </a>
-      <a class="btn secondary" href="../#apps">More apps from Trajectory Labs</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<!-- ============ SHARED CHROME: contact band ============ -->
-<section class="band" id="support">
-  <div class="wrap">
-    <div>
-      <p class="label">Support</p>
-      <h2>Questions about an analysis or your subscription?</h2>
-      <p>Email the team that builds Revest Analyzer. Subscriptions in the iPhone and iPad app are billed by Apple, so you can cancel anytime in your App Store settings.</p>
-    </div>
-    <div class="band-mail">
-      <a class="mail" href="mailto:support@revestanalyzer.com">support@revestanalyzer.com</a>
-      <button class="btn secondary" type="button" data-copy="support@revestanalyzer.com" hidden>Copy email</button>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SHARED CHROME: footer (SLOT: legal line) ============ -->
-<footer class="footer">
-  <div class="wrap">
-    <p class="legal">Revest Analyzer is for informational purposes only and is not financial advice. <span class="store-live">Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</span></p>
-    <div class="row">
-      <span>&copy; 2026 Trajectory Labs, LLC. All rights reserved.</span>
-      <nav aria-label="Footer">
-        <a href="https://revestanalyzer.com/privacy">Privacy policy</a>
-        <a href="https://revestanalyzer.com">Web app</a>
-        <a href="../">Trajectory Labs</a>
       </nav>
-      <span>Made in Oklahoma</span>
     </div>
-  </div>
-</footer>
+  </header>
 
-<script>
-// Copy email button: only shown when the clipboard API exists. Pure enhancement.
-(function () {
-  var b = document.querySelector('[data-copy]');
-  if (!b || !navigator.clipboard) return;
-  b.hidden = false;
-  b.addEventListener('click', function () {
-    navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
-      var t = b.textContent; b.textContent = 'Copied'; b.setAttribute('data-done', '');
-      setTimeout(function () { b.textContent = t; b.removeAttribute('data-done'); }, 1800);
-    });
-  });
-})();
-</script>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-headline">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__content">
+            <div class="hero__badge" aria-label="Available now on iPhone, iPad and the web">
+              <span class="hero__badge-dot" aria-hidden="true"></span>
+              Available on iPhone, iPad &amp; Web
+            </div>
+            <h1 id="hero-headline">Analyze any real estate deal in <span>seconds</span></h1>
+            <p class="hero__sub">Rental, house flip and BRRRR analysis with a Deal Score out of 100 on every deal, on iPhone, iPad or right in your browser. Free to download, and unlimited analyses are free.</p>
+            <div class="hero__actions">
+              <a href="https://apps.apple.com/us/app/revest-analyzer/id6760630054" class="appstore-badge" aria-label="Download Revest Analyzer on the App Store"><img src="app-store-badge.svg" alt="Download on the App Store" width="144" height="48" /></a>
+              <a href="https://revestanalyzer.com/app/calculator/rental" class="btn btn--outline btn--large" aria-label="Try the free deal calculator in your browser, no account needed">Try the Free Calculator</a>
+            </div>
+            <div class="hero__stats" role="list">
+              <div class="hero__stat" role="listitem"><span class="hero__stat-value">3</span><span class="hero__stat-label">Analysis Types</span></div>
+              <div class="hero__stat" role="listitem"><span class="hero__stat-value">10+</span><span class="hero__stat-label">Key Metrics</span></div>
+              <div class="hero__stat" role="listitem"><span class="hero__stat-value">Free</span><span class="hero__stat-label">Unlimited Analyses</span></div>
+            </div>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero__phone-wrap">
+              <div class="hero__phone-frame">
+                <div class="hero__phone-screen">
+                  <img src="screens/rental-results.webp" alt="Rental analysis results for a Columbus triplex: deal score 85 out of 100 (Strong), $687 per month cash flow and 10.41% cash-on-cash return" width="660" height="1434" loading="eager" data-fallback="🏠" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features" aria-labelledby="features-heading">
+      <div class="container">
+
+        <div class="section-header fade-in">
+          <span class="section-label">Analysis Tools</span>
+          <h2 id="features-heading">Every strategy, one app</h2>
+          <p>Whether you're a buy-and-hold investor, a flipper, or pursuing the BRRRR method, Revest Analyzer handles the math so you can focus on the deal.</p>
+        </div>
+
+        <div class="features__grid">
+
+          <!-- Rental Analysis -->
+          <article class="feature-card fade-in" aria-labelledby="feature-rental-title">
+            <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
+            <h3 id="feature-rental-title">Rental Analysis</h3>
+            <p>
+              Enter your purchase price, loan terms, rental income, and expenses to instantly calculate whether a rental property pencils out. Know your numbers before you make an offer.
+            </p>
+            <div class="feature-metrics" role="list" aria-label="Metrics calculated">
+              <span class="feature-metric" role="listitem">Cap Rate</span>
+              <span class="feature-metric" role="listitem">Cash Flow</span>
+              <span class="feature-metric" role="listitem">CoC Return</span>
+              <span class="feature-metric" role="listitem">DSCR</span>
+              <span class="feature-metric" role="listitem">NOI</span>
+              <span class="feature-metric" role="listitem">1% Rule</span>
+            </div>
+          </article>
+
+          <!-- House Flipping -->
+          <article class="feature-card fade-in" aria-labelledby="feature-flip-title">
+            <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></svg></div>
+            <h3 id="feature-flip-title">House Flipping</h3>
+            <p>
+              Input your acquisition cost, rehab budget, ARV, and holding costs to see your projected net profit, ROI, and annualized return, plus the maximum allowable offer price.
+            </p>
+            <div class="feature-metrics" role="list" aria-label="Metrics calculated">
+              <span class="feature-metric" role="listitem">Net Profit</span>
+              <span class="feature-metric" role="listitem">ROI</span>
+              <span class="feature-metric" role="listitem">Annualized ROI</span>
+              <span class="feature-metric" role="listitem">MAO</span>
+              <span class="feature-metric" role="listitem">Total Cost</span>
+            </div>
+          </article>
+
+          <!-- BRRRR Strategy -->
+          <article class="feature-card fade-in" aria-labelledby="feature-brrrr-title">
+            <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></div>
+            <h3 id="feature-brrrr-title">BRRRR Strategy</h3>
+            <p>
+              Model your Buy, Rehab, Rent, Refinance, Repeat strategy end-to-end. See how much cash you put in, how much comes back at the refinance, the equity you've created, and your post-refi cash flow.
+            </p>
+            <div class="feature-metrics" role="list" aria-label="Metrics calculated">
+              <span class="feature-metric" role="listitem">Cash Upfront</span>
+              <span class="feature-metric" role="listitem">Cash Left In</span>
+              <span class="feature-metric" role="listitem">Equity Created</span>
+              <span class="feature-metric" role="listitem">Post-Refi Cash Flow</span>
+            </div>
+          </article>
+
+        </div><!-- /.features__grid -->
+
+        <!-- Additional Features -->
+        <div class="extra-features">
+
+          <div class="extra-feature fade-in">
+            <span class="extra-feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+            <div>
+              <h4>Transparent Deal Score</h4>
+              <p>Every deal gets a score out of 100 with a plain-English summary, and you can see exactly how it's calculated.</p>
+            </div>
+          </div>
+
+          <div class="extra-feature fade-in">
+            <span class="extra-feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>
+            <div>
+              <h4>Property Comparison</h4>
+              <p>Rank up to 3 deals side by side. See the best pick, why it won, and the best value in every row. <strong>Pro</strong></p>
+            </div>
+          </div>
+
+          <div class="extra-feature fade-in">
+            <span class="extra-feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
+            <div>
+              <h4>5-Year Projections</h4>
+              <p>Equity, loan paydown, cash flow and total return over 5 years, based on your own appreciation and rent growth assumptions. <strong>Pro</strong></p>
+            </div>
+          </div>
+
+          <div class="extra-feature fade-in">
+            <span class="extra-feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+            <div>
+              <h4>PDF Reports</h4>
+              <p>Share polished reports with partners, lenders or your agent. Pro reports drop the footer and add the 5-year projection.</p>
+            </div>
+          </div>
+
+          <div class="extra-feature fade-in">
+            <span class="extra-feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></span>
+            <div>
+              <h4>Save &amp; Organize</h4>
+              <p>Save deals with photos, then search, filter and sort by score or price. Synced across iPhone, iPad and the web.</p>
+            </div>
+          </div>
+
+          <div class="extra-feature fade-in">
+            <span class="extra-feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg></span>
+            <div>
+              <h4>Your Defaults &amp; Targets</h4>
+              <p>Set your expense rates, financing terms and investment targets once. Every new analysis starts from them.</p>
+            </div>
+          </div>
+
+        </div><!-- /.extra-features -->
+
+      </div>
+    </section>
+
+    <section class="section section--alt" id="screenshots" aria-labelledby="screenshots-heading">
+      <div class="container">
+
+        <div class="section-header fade-in">
+          <span class="section-label">The App</span>
+          <h2 id="screenshots-heading">See it in action</h2>
+          <p>Real results from real deal analyses, built for the way investors actually work.</p>
+        </div>
+
+      </div>
+
+      <div class="container" style="overflow:visible;">
+        <div class="screenshots__scroll" role="list" aria-label="App screenshots">
+
+          <div class="screenshot-item" role="listitem">
+            <div class="screenshot-frame" aria-hidden="true">
+              <div class="screenshot-screen">
+                <img
+                  src="screens/home.webp"
+                  alt="Home screen with the three analysis types: rental, house flipping and BRRRR"
+                  loading="lazy"
+                  data-fallback="🏠"
+                />
+              </div>
+            </div>
+            <p class="screenshot-label">Home</p>
+          </div>
+
+          <div class="screenshot-item" role="listitem">
+            <div class="screenshot-frame" aria-hidden="true">
+              <div class="screenshot-screen">
+                <img
+                  src="screens/rental-results.webp"
+                  alt="Rental results for a Columbus triplex: deal score 85 (Strong), $687/mo cash flow, 10.41% cash-on-cash, 8.73% cap rate"
+                  loading="lazy"
+                  data-fallback="🏢"
+                />
+              </div>
+            </div>
+            <p class="screenshot-label">Rental Analysis</p>
+          </div>
+
+          <div class="screenshot-item" role="listitem">
+            <div class="screenshot-frame" aria-hidden="true">
+              <div class="screenshot-screen">
+                <img
+                  src="screens/projection.webp"
+                  alt="5-year projection showing $104,804 total return from appreciation, loan paydown and cash flow"
+                  loading="lazy"
+                  data-fallback="📈"
+                />
+              </div>
+            </div>
+            <p class="screenshot-label">5-Year Projection</p>
+          </div>
+
+          <div class="screenshot-item" role="listitem">
+            <div class="screenshot-frame" aria-hidden="true">
+              <div class="screenshot-screen">
+                <img
+                  src="screens/comparison.webp"
+                  alt="Comparison of three rentals scored 85, 74 and 47, with the best pick and a side-by-side metric table"
+                  loading="lazy"
+                  data-fallback="⚖️"
+                />
+              </div>
+            </div>
+            <p class="screenshot-label">Deal Comparison</p>
+          </div>
+
+          <div class="screenshot-item" role="listitem">
+            <div class="screenshot-frame" aria-hidden="true">
+              <div class="screenshot-screen">
+                <img
+                  src="screens/properties.webp"
+                  alt="Saved deals with photos, deal scores, filters by type and sorting by date, score or price"
+                  loading="lazy"
+                  data-fallback="💾"
+                />
+              </div>
+            </div>
+            <p class="screenshot-label">My Properties</p>
+          </div>
+
+          <div class="screenshot-item" role="listitem">
+            <div class="screenshot-frame" aria-hidden="true">
+              <div class="screenshot-screen">
+                <img
+                  src="screens/brrrr-results-dark.webp"
+                  alt="BRRRR results in dark mode: score 76, all cash back at refinance, $117/mo cash flow"
+                  loading="lazy"
+                  data-fallback="♻️"
+                />
+              </div>
+            </div>
+            <p class="screenshot-label">BRRRR in Dark Mode</p>
+          </div>
+
+        </div><!-- /.screenshots__scroll -->
+      </div>
+
+    </section>
+
+    <section class="section comparison" id="comparison" aria-labelledby="comparison-heading">
+      <div class="container">
+        <div class="comparison__grid">
+
+          <div class="comparison__content">
+            <span class="section-label">Pro Feature</span>
+            <h2 id="comparison-heading">Compare properties. Make better decisions.</h2>
+            <p>
+              Stop trying to hold multiple deals in your head. Revest Analyzer's comparison tool scores every property on the same scale so you always know which deal wins.
+            </p>
+            <ul class="comparison__list">
+              <li>
+                <span class="comparison__check" aria-hidden="true">✓</span>
+                Compare up to 3 properties side-by-side
+              </li>
+              <li>
+                <span class="comparison__check" aria-hidden="true">✓</span>
+                Deal score out of 100, with transparent weights
+              </li>
+              <li>
+                <span class="comparison__check" aria-hidden="true">✓</span>
+                All key metrics shown at a glance
+              </li>
+              <li>
+                <span class="comparison__check" aria-hidden="true">✓</span>
+                Best pick explained, best value in every row highlighted
+              </li>
+              <li>
+                <span class="comparison__check" aria-hidden="true">✓</span>
+                Export comparison reports as PDF
+              </li>
+            </ul>
+          </div>
+
+          <div class="comparison__visual" aria-label="Example property comparison">
+
+            <!-- Property card 1: winner -->
+            <div class="comparison-card comparison-card--winner">
+              <div class="comparison-card__header">
+                <div>
+                  <div class="comparison-card__name">Cedar Ct Triplex</div>
+                  <span class="comparison-card__badge">Best Pick</span>
+                </div>
+                <div style="text-align:right;">
+                  <div class="comparison-card__score">85</div>
+                  <div class="comparison-card__score-label">Score / 100</div>
+                </div>
+              </div>
+              <div class="comparison-card__metrics">
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">Cash Flow</span>
+                  <span class="comparison-metric__value">$687/mo</span>
+                </div>
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">Cap Rate</span>
+                  <span class="comparison-metric__value">8.73%</span>
+                </div>
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">CoC Return</span>
+                  <span class="comparison-metric__value">10.41%</span>
+                </div>
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">DSCR</span>
+                  <span class="comparison-metric__value">1.50</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Property card 2 -->
+            <div class="comparison-card">
+              <div class="comparison-card__header">
+                <div class="comparison-card__name">Maple St Duplex</div>
+                <div style="text-align:right;">
+                  <div class="comparison-card__score">74</div>
+                  <div class="comparison-card__score-label">Score / 100</div>
+                </div>
+              </div>
+              <div class="comparison-card__metrics">
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">Cash Flow</span>
+                  <span class="comparison-metric__value">$422/mo</span>
+                </div>
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">Cap Rate</span>
+                  <span class="comparison-metric__value">8.30%</span>
+                </div>
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">CoC Return</span>
+                  <span class="comparison-metric__value">8.84%</span>
+                </div>
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">DSCR</span>
+                  <span class="comparison-metric__value">1.42</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Property card 3 -->
+            <div class="comparison-card">
+              <div class="comparison-card__header">
+                <div class="comparison-card__name">Elm Ave Bungalow</div>
+                <div style="text-align:right;">
+                  <div class="comparison-card__score">47</div>
+                  <div class="comparison-card__score-label">Score / 100</div>
+                </div>
+              </div>
+              <div class="comparison-card__metrics">
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">Cash Flow</span>
+                  <span class="comparison-metric__value">$197/mo</span>
+                </div>
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">Cap Rate</span>
+                  <span class="comparison-metric__value">7.27%</span>
+                </div>
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">CoC Return</span>
+                  <span class="comparison-metric__value">5.17%</span>
+                </div>
+                <div class="comparison-metric">
+                  <span class="comparison-metric__label">DSCR</span>
+                  <span class="comparison-metric__value">1.25</span>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.comparison__visual -->
+
+        </div><!-- /.comparison__grid -->
+      </div>
+    </section>
+
+    <section class="section" id="pricing" aria-labelledby="pricing-heading">
+      <div class="container">
+
+        <div class="section-header fade-in">
+          <span class="section-label">Pricing</span>
+          <h2 id="pricing-heading">Start free. Upgrade anytime.</h2>
+          <p>Analyze unlimited deals for free. Upgrade to Pro for unlimited saves, comparisons, 5-year projections and clean reports. Try Pro free for 14 days and cancel anytime.</p>
+        </div>
+
+        <div class="pricing__grid">
+
+          <!-- Free Card -->
+          <div class="pricing-card fade-in" aria-labelledby="plan-free-title">
+            <div class="pricing-card__tier" id="plan-free-title">Free</div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">$0</span>
+              <span class="pricing-card__period">forever</span>
+            </div>
+            <p class="pricing-card__note">No credit card needed</p>
+            <p class="pricing-card__trial">&nbsp;</p>
+            <div class="pricing-divider" aria-hidden="true"></div>
+            <ul class="pricing-features" aria-label="Included features">
+              <li><span class="check" aria-hidden="true">✓</span> Rental, Flip and BRRRR Analysis</li>
+              <li><span class="check" aria-hidden="true">✓</span> Unlimited Analyses</li>
+              <li><span class="check" aria-hidden="true">✓</span> Deal Scores</li>
+              <li><span class="check" aria-hidden="true">✓</span> 3 Saved Deals</li>
+              <li><span class="check" aria-hidden="true">✓</span> PDF Reports</li>
+            </ul>
+            <a href="https://apps.apple.com/us/app/revest-analyzer/id6760630054" class="pricing-cta" aria-label="Get Revest Analyzer free on the App Store">Get Started Free</a>
+            <a href="https://revestanalyzer.com/app/signup" class="pricing-alt-link">or start free on the web</a>
+          </div>
+
+          <!-- Pro Annual Card: Featured -->
+          <div class="pricing-card pricing-card--featured fade-in" aria-labelledby="plan-annual-title">
+            <div class="pricing-badge" aria-label="Most popular plan">Most Popular</div>
+            <div class="pricing-card__tier" id="plan-annual-title">Pro Annual</div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">$79.99</span>
+              <span class="pricing-card__period">/year</span>
+            </div>
+            <p class="pricing-card__note pricing-card__note--savings">Save 33% vs. monthly · ~$6.67/mo</p>
+            <p class="pricing-card__trial">14-day free trial included</p>
+            <div class="pricing-divider" aria-hidden="true"></div>
+            <ul class="pricing-features" aria-label="Included features">
+              <li><span class="check" aria-hidden="true">✓</span> Everything in Free</li>
+              <li><span class="check" aria-hidden="true">✓</span> Unlimited Saved Deals</li>
+              <li><span class="check" aria-hidden="true">✓</span> Deal Comparison</li>
+              <li><span class="check" aria-hidden="true">✓</span> 5-Year Projections</li>
+              <li><span class="check" aria-hidden="true">✓</span> Clean PDF Reports</li>
+            </ul>
+            <a href="https://apps.apple.com/us/app/revest-analyzer/id6760630054" class="pricing-cta pricing-cta--filled" aria-label="Get Pro Annual plan with 14-day free trial">Get Pro, 14 days free</a>
+            <p class="pricing-alt-link pricing-alt-link--note">Then $79.99/year, cancel anytime</p>
+          </div>
+
+          <!-- Pro Monthly Card -->
+          <div class="pricing-card fade-in" aria-labelledby="plan-monthly-title">
+            <div class="pricing-card__tier" id="plan-monthly-title">Pro Monthly</div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">$9.99</span>
+              <span class="pricing-card__period">/mo</span>
+            </div>
+            <p class="pricing-card__note">Billed monthly, cancel anytime</p>
+            <p class="pricing-card__trial">14-day free trial included</p>
+            <div class="pricing-divider" aria-hidden="true"></div>
+            <ul class="pricing-features" aria-label="Included features">
+              <li><span class="check" aria-hidden="true">✓</span> Everything in Free</li>
+              <li><span class="check" aria-hidden="true">✓</span> Unlimited Saved Deals</li>
+              <li><span class="check" aria-hidden="true">✓</span> Deal Comparison</li>
+              <li><span class="check" aria-hidden="true">✓</span> 5-Year Projections</li>
+              <li><span class="check" aria-hidden="true">✓</span> Clean PDF Reports</li>
+            </ul>
+            <a href="https://apps.apple.com/us/app/revest-analyzer/id6760630054" class="pricing-cta" aria-label="Get Pro Monthly plan with 14-day free trial">Get Pro, 14 days free</a>
+            <p class="pricing-alt-link pricing-alt-link--note">Then $9.99/month, cancel anytime</p>
+          </div>
+
+        </div><!-- /.pricing__grid -->
+
+        <p class="pricing-trial-note">
+          Plans auto-renew after the free trial and can be cancelled any time. iOS plans are managed in your Apple account settings.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="section section--alt" id="privacy" aria-labelledby="privacy-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Privacy</span>
+          <h2 id="privacy-heading">A little data for your account. No tracking.</h2>
+          <p>Revest Analyzer uses an account, so it keeps a small amount of information linked to you. Here is what the App Store privacy label lists. <a href="https://revestanalyzer.com/privacy">Read the full privacy policy</a>.</p>
+        </div>
+        <div class="extra-features extra-features--three">
+          <div class="extra-feature fade-in">
+            <span class="extra-feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+            <div><h4>Email and name</h4><p>You sign in with an account. Your email address, your name and a user ID are linked to you.</p></div>
+          </div>
+          <div class="extra-feature fade-in">
+            <span class="extra-feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span>
+            <div><h4>No tracking</h4><p>Nothing is used to track you across other companies' apps or websites.</p></div>
+          </div>
+          <div class="extra-feature fade-in">
+            <span class="extra-feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
+            <div><h4>Used for three things</h4><p>That information is used to run the app, for analytics and for Trajectory Labs' own marketing, as listed on the App Store privacy label.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section comparison support" id="support" aria-labelledby="support-heading">
+      <div class="container">
+        <div class="support__inner">
+          <div class="comparison__content">
+            <span class="section-label">Support</span>
+            <h2 id="support-heading">Questions about an analysis or your subscription?</h2>
+            <p>Email the team that builds Revest Analyzer. Subscriptions in the iPhone and iPad app are billed by Apple, so you can cancel anytime in your App Store settings.</p>
+          </div>
+          <a href="mailto:support@revestanalyzer.com" class="btn btn--gold btn--large">support@revestanalyzer.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#top" class="footer__logo" aria-label="Revest Analyzer, top of page">
+            <svg viewBox="160 210 704 596" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="width:28px;height:auto;">
+            <path d="M212 520 L512 262 L812 520" fill="none" stroke="#a8d5a9" stroke-width="72" stroke-linecap="round" stroke-linejoin="round" />
+            <rect x="318" y="664" width="108" height="126" rx="26" fill="#a8d5a9" />
+            <rect x="458" y="590" width="108" height="200" rx="26" fill="#a8d5a9" />
+            <rect x="598" y="510" width="108" height="280" rx="26" fill="#F2C230" />
+          </svg>
+            <span class="footer__logo-name">Revest Analyzer</span>
+          </a>
+          <p class="footer__tagline">Real estate deal analysis tools for serious investors. Available on iPhone, iPad and the web.</p>
+          <p class="footer__maker">A <a href="../">Trajectory Labs</a> app · <a href="../#apps">More apps</a></p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__link-group">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#screenshots">Screenshots</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="https://apps.apple.com/us/app/revest-analyzer/id6760630054">Download on the App Store</a></li>
+              <li><a href="https://revestanalyzer.com">Use the web app</a></li>
+              <li><a href="https://revestanalyzer.com/app/calculator/rental">Rental Property Calculator</a></li>
+              <li><a href="https://revestanalyzer.com/app/calculator/flip">Fix and Flip Calculator</a></li>
+              <li><a href="https://revestanalyzer.com/app/calculator/brrrr">BRRRR Calculator</a></li>
+            </ul>
+          </div>
+          <div class="footer__link-group">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="https://revestanalyzer.com/privacy">Privacy Policy</a></li>
+              <li><a href="mailto:support@revestanalyzer.com">Support</a></li>
+              <li><a href="../">Trajectory Labs</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__divider" aria-hidden="true"></div>
+      <div class="footer__fineprint">
+        <p class="footer__disclaimer">Revest Analyzer is for informational purposes only and is not financial advice. Consult qualified professionals before investing.</p>
+        <p class="footer__disclaimer">Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</p>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 <a href="../">Trajectory Labs, LLC</a>. All rights reserved. Made in Oklahoma.</p>
+        <nav class="footer__legal" aria-label="Legal links">
+          <a href="https://revestanalyzer.com/privacy">Privacy Policy</a>
+          <a href="mailto:support@revestanalyzer.com">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="site.js" defer></script>
 </body>
 </html>

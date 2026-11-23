@@ -16,3 +16,4 @@ Stage: live (company site; not an app, no pipeline stage)   Updated: 2026-11-20 
 
 ## Log
 - Nov 20, 2026 (TL Ops): local clone moved from ~/projects/trajectorylabs-site to ~/src/trajectorylabs-site (one folder per repo under ~/src). A symlink at the old path stays until about Nov 27. Nothing served changed.
+- 2026-11-23: Revest page rebuilt on Revest's own design system to match the 1.3 redesign (revest.css copied from revest-analyzer-web/marketing/style.css; screens from its screenshots). Icons renamed with -v13 so browser caches pick them up. Preview first; production pin waits on Wes.
