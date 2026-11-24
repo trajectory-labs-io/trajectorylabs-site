@@ -17,3 +17,4 @@ Stage: live (company site; not an app, no pipeline stage)   Updated: 2026-11-20 
 ## Log
 - Nov 20, 2026 (TL Ops): local clone moved from ~/projects/trajectorylabs-site to ~/src/trajectorylabs-site (one folder per repo under ~/src). A symlink at the old path stays until about Nov 27. Nothing served changed.
 - 2026-11-23: Revest page keeps the TL layout. Images that change content get a new file name (for example app-icon-v13.webp), because images cache in browsers for 24 hours. Jonathon-style rebuild parked on branch claude/revest-redesign, not used.
+- 2026-11-24: DishDecoded page and homepage card carry the new icon (fork that forms a D, mint-to-coral ring) on branch claude/project-thread-cpf5np. Icon files renamed with -v2 so cached copies refresh. Not live: goes live with the DishDecoded 1.1 App Store release when the worker pin moves, on Wes's yes.
