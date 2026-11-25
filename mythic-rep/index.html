@@ -3,7 +3,7 @@
      Trajectory Labs app page (from the hamprep-site template, see TEMPLATE.md).
      Served at trajectorylabs.io/mythic-rep/. All links to the parent site are relative.
      Copy, icon and card art come from the mythicrep repo (README.md and mythicrep-site/).
-     STORE STATE: live on the App Store (iPhone) since Nov 13, 2026. Google Play still in testing.
+     STORE STATE: live on the App Store (iPhone) since Nov 13, 2026, and on Google Play (Android) since Nov 19, 2026.
      Still to add: real phone screenshots.
      ============================================================ -->
 <html lang="en" data-store="live">
@@ -11,7 +11,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MythicRep: The workout tracker that levels up with you</title>
-<meta name="description" content="Log your lifts, level your cards. MythicRep is a workout tracker where every exercise is a collectible card and weights progress on their own. Free on the App Store for iPhone.">
+<meta name="description" content="Log your lifts, level your cards. MythicRep is a workout tracker where every exercise is a collectible card and weights progress on their own. Free on iPhone and Android.">
 <link rel="canonical" href="https://trajectorylabs.io/mythic-rep/">
 <meta name="theme-color" content="#f5f9f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b1513" media="(prefers-color-scheme: dark)">
@@ -108,7 +108,7 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
 <section class="hero">
   <div class="wrap">
     <div class="hero-copy">
-      <p class="label">Move &middot; iPhone &middot; Fitness</p>
+      <p class="label">Move &middot; iPhone and Android &middot; Fitness</p>
       <div class="app-id">
         <img src="assets/app-icon.webp" width="76" height="76" alt="MythicRep app icon: a gold dumbbell across a glowing violet and gold crystal">
         <div>
@@ -123,9 +123,12 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
         <a class="store-badge store-live" href="https://apps.apple.com/us/app/mythicrep-workout-tracker/id6826918978" aria-label="Download MythicRep on the App Store">
           <img src="../shared/app-store-badge-black.svg" width="168" height="56" alt="Download on the App Store">
         </a>
+        <a class="store-badge store-live" href="https://play.google.com/store/apps/details?id=com.trajectorylabs.mythicrep" aria-label="Get MythicRep on Google Play">
+          <img src="../shared/google-play-badge.png" width="188" height="56" alt="Get it on Google Play">
+        </a>
         <a class="btn secondary" href="https://mythicrep.com">Visit mythicrep.com</a>
       </div>
-      <p class="cta-note store-live">Free on the App Store for iPhone, no account needed. Android is in testing.</p>
+      <p class="cta-note store-live">Free on the App Store for iPhone and on Google Play for Android, no account needed.</p>
     </div>
 
     <div class="hero-art" aria-hidden="true">
@@ -258,11 +261,14 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
     <div class="section-head cta-head">
       <p class="label accent">Get MythicRep</p>
       <h2 class="store-live">Your workouts, as a collectible deck.</h2>
-      <p class="store-live">MythicRep is on the App Store for iPhone. Android is in testing.</p>
+      <p class="store-live">MythicRep is on the App Store for iPhone and on Google Play for Android.</p>
     </div>
     <div class="cta">
       <a class="store-badge store-live" href="https://apps.apple.com/us/app/mythicrep-workout-tracker/id6826918978" aria-label="Download MythicRep on the App Store">
         <img src="../shared/app-store-badge-black.svg" width="168" height="56" alt="Download on the App Store" loading="lazy">
+      </a>
+      <a class="store-badge store-live" href="https://play.google.com/store/apps/details?id=com.trajectorylabs.mythicrep" aria-label="Get MythicRep on Google Play">
+        <img src="../shared/google-play-badge.png" width="188" height="56" alt="Get it on Google Play" loading="lazy">
       </a>
       <a class="btn secondary" href="https://mythicrep.com">Visit mythicrep.com</a>
       <a class="btn secondary" href="../#apps">More apps from Trajectory Labs</a>
@@ -289,7 +295,7 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
 <!-- ============ SHARED CHROME: footer ============ -->
 <footer class="footer">
   <div class="wrap">
-    <p class="legal"><span class="store-live">Apple, the Apple logo, and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</span></p>
+    <p class="legal"><span class="store-live">Apple, the Apple logo, and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</span></p>
     <div class="row">
       <span>&copy; 2026 Trajectory Labs, LLC. All rights reserved.</span>
       <nav aria-label="Footer">
