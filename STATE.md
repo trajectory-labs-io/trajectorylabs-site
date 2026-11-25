@@ -1,8 +1,9 @@
 # STATE: trajectorylabs.io
 
-Stage: live (company site; not an app, no pipeline stage)   Updated: 2026-11-24 by Claude Code (DishDecoded session)
+Stage: live (company site; not an app, no pipeline stage)   Updated: 2026-11-25 by Claude (Play badges)
 
 ## Where things stand
+- Nov 25, 2026: worker pin moved e7307e8 -> **63cb603** (Wes approved): Google Play badges for Revest Analyzer and MythicRep on the homepage cards and both app pages (shared/google-play-badge.png, Google's official badge), Android in their copy, Google trademark line in their footers. Prod worker version 39ed69a4. Rollback: set PIN back to e7307e8849827e0961691b17dc830a8a287d4dd1 (version d61f8188). Checked live: homepage cards, /revest/, /mythic-rep/, hamprep subdomain redirect.
 - Nov 24, 2026: worker pin moved 004f29f -> **e7307e8** (Wes approved): new DishDecoded icon and current app screens (Ada's branch claude/project-thread-cpf5np, fast-forwarded into main). Rollback: set PIN back to 004f29fd28e9f3adfebca807f286132aae1c12e4. Only the PIN constant in worker.js changed; assets binding kept. Checked live: pages 200, all referenced images 200, hamprep 301 intact. The July-date screenshot item below is resolved by this.
 - Live: Cloudflare Worker old-darkness-5aae serves this repo from a pinned commit (see README). Pinned to main 2b7971b since Nov 15, 2026; every file served is identical to later main (d680903 and on change only STATE.md and README.md), checked Nov 18, 2026.
 - Apps live on the App Store: Revest Analyzer, MythicRep, HamPrep (1.1.1, live Nov 17, 2026; All Licenses Bundle $9.99, its "All licenses" description approved by Apple Nov 18). DishDecoded: coming soon (launch goal Dec 1, 2026).
