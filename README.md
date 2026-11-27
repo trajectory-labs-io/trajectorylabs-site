@@ -4,7 +4,7 @@ The Trajectory Labs, LLC website: the homepage and one page per app.
 
 - `index.html`: homepage with the app cards
 - `hamprep/`: the HamPrep page, with its support and privacy pages (the App Store listing links here)
-- `revest/`, `dishdecoded/`, `mythic-rep/`: app pages built from the same template
+- `revest/`, `dishdecoded/`, `mythic-rep/`, `grol/`, `prism/`: app pages built from the same template
 - `shared/`: the shared app-page stylesheet and the official App Store badge
 - `favicon.svg`, `apple-touch-icon.png`: the Trajectory Labs mark
 

@@ -18,6 +18,7 @@ Stage: live (company site; not an app, no pipeline stage)   Updated: 2026-11-25 
 - Publishing anything live needs Wes's yes; previews first.
 
 ## Log
+- 2026-11-27: Prism (Jonathon's lists and reminders app) page at prism/ and a homepage card on branch claude/project-thread-hz0h92 (1b95d7a). Google Play live; App Store slot shows "coming soon" (in Apple review since Nov 26). Copy, icon and screens from the prism-task-focus repo (prism-web/). Not live: waits on Wes's review and yes. When Apple approves, swap the App Store pill for the badge on both the page and the card.
 - Nov 20, 2026 (TL Ops): local clone moved from ~/projects/trajectorylabs-site to ~/src/trajectorylabs-site (one folder per repo under ~/src). A symlink at the old path stays until about Nov 27. Nothing served changed.
 - 2026-11-23: Revest page keeps the TL layout. Images that change content get a new file name (for example app-icon-v13.webp), because images cache in browsers for 24 hours. Jonathon-style rebuild parked on branch claude/revest-redesign, not used.
 - 2026-11-24: DishDecoded page and homepage card carry the new icon (fork that forms a D, mint-to-coral ring) on branch claude/project-thread-cpf5np. Icon files renamed with -v2 so cached copies refresh. Not live: goes live with the DishDecoded 1.1 App Store release when the worker pin moves, on Wes's yes.
