@@ -1,0 +1,302 @@
+<!doctype html>
+<!-- ============================================================
+     Trajectory Labs app page (from the hamprep-site template, see TEMPLATE.md).
+     Served at trajectorylabs.io/prism/. All links to the parent site are relative.
+     Copy, icon and screenshots come from the prism-task-focus repo (prism-web/ marketing site and prism-mobile/assets).
+     STORE STATE: live on Google Play (Android) since Nov 27, 2026. iPhone and iPad version in App Store review since Nov 26, 2026.
+     The App Store slot shows a "coming soon" pill (not tied to data-store). When Apple approves it, swap the pill for the
+     official badge linking to the App Store listing, update the cta-notes and add Apple's trademark line in the footer.
+     ============================================================ -->
+<html lang="en" data-store="live">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prism: Lists and reminders, all in one place</title>
+<meta name="description" content="Prism keeps task lists, checklists and routines that reset in one place, with a Today view, due dates as you type and reminders on time. Free on Android, coming soon to iPhone and iPad. No sign-up.">
+<link rel="canonical" href="https://trajectorylabs.io/prism/">
+<meta name="theme-color" content="#f5f9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1513" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trajectory Labs">
+<meta property="og:title" content="Prism: Lists and reminders, all in one place">
+<meta property="og:description" content="Task lists, checklists and routines that reset, with a Today view and reminders that arrive on time.">
+<meta property="og:url" content="https://trajectorylabs.io/prism/">
+<meta property="og:image" content="https://trajectorylabs.io/prism/icon.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Prism app icon: a pyramid of colored tiles on a dark background">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Prism: Lists and reminders, all in one place">
+<meta name="twitter:description" content="Task lists, checklists and routines that reset, with a Today view and reminders that arrive on time.">
+<meta name="twitter:image" content="https://trajectorylabs.io/prism/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../shared/app-page.css">
+<!-- SLOT: per-app accent. Prism indigo from prism-focus.com (#4f46e5 light, #a5a8ff dark).
+     Light: --accent-ink #4f46e5 on --bg #f5f9f7 and white on the fill both clear 4.5:1.
+     Dark:  the fill lifts to #a5a8ff with dark ink; --accent-ink #a5a8ff on #0b1513 clears 4.5:1. -->
+<style>
+:root {
+  --accent: #4f46e5;
+  --accent-ink: #4f46e5;
+  --accent-soft: #ecebfd;
+  --accent-glow: rgba(79, 70, 229, .2);
+  --accent-shadow: rgba(79, 70, 229, .45);
+  --on-accent: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --accent: #a5a8ff; --accent-ink: #a5a8ff; --accent-soft: #22214a;
+    --accent-glow: rgba(165, 168, 255, .22); --accent-shadow: rgba(165, 168, 255, .4); --on-accent: #0b1513;
+  }
+}
+:root[data-theme="dark"] {
+  --accent: #a5a8ff; --accent-ink: #a5a8ff; --accent-soft: #22214a;
+  --accent-glow: rgba(165, 168, 255, .22); --accent-shadow: rgba(165, 168, 255, .4); --on-accent: #0b1513;
+}
+</style>
+<script>
+// Always open at the top unless the link points at a section (#...).
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function () { window.scrollTo(0, 0); }); }
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ SHARED CHROME: nav (same on every app page) ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Trajectory Labs home">
+      <svg viewBox="0 0 564 771" aria-hidden="true"><rect x="0" y="0" width="234" height="184" rx="6" fill="var(--teal)"/><path d="M233 184 H564 V361 H421 V500 C421 552 462 588 520 588 H564 V771 C370 771 238 650 233 470 Z" fill="var(--mint)"/></svg>
+      Trajectory Labs
+    </a>
+    <span class="crumb"><span class="sep" aria-hidden="true">/</span><img src="assets/app-icon.webp" width="26" height="26" alt="">Prism</span>
+    <nav class="nav-links" aria-label="Page">
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#support">Support</a>
+      <a class="keep" href="../#apps">More apps</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="label">Organize &middot; Android, iPhone and iPad &middot; Productivity</p>
+      <div class="app-id">
+        <img src="assets/app-icon.webp" width="76" height="76" alt="Prism app icon: a pyramid of colored tiles on a dark background">
+        <div>
+          <div class="name">Prism</div>
+          <div class="tag">Lists &amp; Reminders</div>
+        </div>
+      </div>
+      <h1>All your lists <span class="accent">in one place.</span></h1>
+      <p class="lead">See your day at a glance, keep everything in lists, and get reminded on time. Due dates as you type, home screen widgets, and routines that reset themselves.</p>
+
+      <div class="cta">
+        <a class="store-badge store-live" href="https://play.google.com/store/apps/details?id=com.trajectorylabs.prism" aria-label="Get Prism on Google Play">
+          <img src="../shared/google-play-badge.png" width="188" height="56" alt="Get it on Google Play">
+        </a>
+        <!-- App Store: coming soon until Apple approves it (no link, no badge) -->
+        <span class="soon-pill"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</span>
+        <a class="btn secondary" href="https://prism-focus.com">Visit prism-focus.com</a>
+      </div>
+      <p class="cta-note">Free on Google Play for Android, with no sign-up. The iPhone and iPad version is coming soon to the App Store.</p>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="orb"></div>
+      <div class="dots"><i></i><i></i><i></i><i></i></div>
+      <img class="hero-phone" src="assets/hero-phone.webp" width="598" height="1300" alt="" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS (facts from prism-focus.com and its privacy policy) ============ -->
+<section class="section" aria-label="At a glance">
+  <div class="wrap">
+    <div class="stats">
+      <div><div class="num accent">3</div><div class="what">Kinds of lists: tasks, checklists and routines</div></div>
+      <div><div class="num">Today</div><div class="what">One screen for what's due across every list</div></div>
+      <div><div class="num">90 days</div><div class="what">Of finished tasks kept in the Log</div></div>
+      <div><div class="num">0</div><div class="what">Accounts, ads or trackers</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCREENSHOTS (from prism-web/public/assets) ============ -->
+<section class="section" id="inside">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">What's inside</p>
+      <h2>Simple lists that keep up with you.</h2>
+      <p>Projects, errands, groceries, packing and the things you do every week, each in a list made for it.</p>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <img src="assets/shot-lists.webp" width="518" height="1126" loading="lazy" decoding="async" alt="Lists screen with a task list, a groceries checklist, a soccer bag routine, a home projects list and a morning routine">
+        <figcaption><b>Every list in one place</b>Task lists, checklists and routines side by side.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-typing.webp" width="518" height="1126" loading="lazy" decoding="async" alt="Adding the task Call Sam tomorrow 3pm, with the due date set to tomorrow at 3:00 PM automatically">
+        <figcaption><b>Due dates as you type</b>"Call Sam tomorrow 3pm" sets the date and time for you.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-share.webp" width="518" height="1126" loading="lazy" decoding="async" alt="Add to Prism sheet with four shared items, a list picker and an Add 4 tasks button">
+        <figcaption><b>Share from any app</b>Send text from notes, messages or the web straight to a list.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-reminder.webp" width="518" height="1126" loading="lazy" decoding="async" alt="Edit task sheet with a due date, a 2:30 PM time and a reminder one hour before">
+        <figcaption><b>Reminders on time</b>At the due time, 15 minutes, an hour or a day before, or that morning.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-focus.webp" width="518" height="1126" loading="lazy" decoding="async" alt="Focus mode turned on, showing only three starred tasks">
+        <figcaption><b>Focus mode</b>Star a few tasks and hide the rest.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Features</p>
+      <h2>The little things, done right.</h2>
+      <p>Everything you need to keep track of the day, and nothing that gets in the way.</p>
+    </div>
+    <div class="grid">
+      <div class="card accent-top">
+        <span class="idx">01</span>
+        <h3>Today, at a glance</h3>
+        <p>Everything overdue, due today and in focus, from every list, on one screen. Check things off right there, with undo if you tapped too soon.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">02</span>
+        <h3>Three kinds of lists</h3>
+        <p>Task lists with due dates and reminders, checklists you clear in one tap, and routines that reset by hand or every day or week.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">03</span>
+        <h3>Quick to add</h3>
+        <p>Natural dates like tomorrow, Friday or 3pm, and paste a whole list to turn each line into its own item.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">04</span>
+        <h3>Widgets</h3>
+        <p>See what's due today on your home screen and lock screen without opening the app.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">05</span>
+        <h3>Profiles</h3>
+        <p>Keep Personal and Work apart, each with its own lists, and drag lists and tasks into the order that works for you.</p>
+      </div>
+      <div class="card accent-top">
+        <span class="idx">06</span>
+        <h3>A daily check-in</h3>
+        <p>An optional nudge each day to look over your lists, and a Log that keeps what you finished for 90 days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIVACY SUMMARY (from prism-focus.com/privacy, effective Nov 26, 2026) ============ -->
+<section class="section" id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Privacy</p>
+      <h2>Your lists stay yours.</h2>
+      <p>The short version from Prism's privacy policy. <a href="https://prism-focus.com/privacy/">Read the full privacy policy</a>.</p>
+    </div>
+    <div class="privacy-strip">
+      <div class="card">
+        <span class="big">Nothing collected</span>
+        <p>No sign-up or account. Prism doesn't send your lists or anything else to us or anyone else.</p>
+      </div>
+      <div class="card">
+        <span class="big">Stored on your device</span>
+        <p>Your lists, tasks and reminders live in the app on your phone, and reminders are scheduled right on the device.</p>
+      </div>
+      <div class="card">
+        <span class="big">Backed up to your own account</span>
+        <p>On iPhone and iPad, iCloud Backup keeps a copy in your own iCloud. On Android, your device backup can include Prism in your own Google account.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECOND CTA ============ -->
+<section class="section" aria-label="Get the app">
+  <div class="wrap">
+    <div class="section-head cta-head">
+      <p class="label accent">Get Prism</p>
+      <h2>Get your lists in order.</h2>
+      <p>Prism is free on Google Play for Android, with no sign-up. The iPhone and iPad version is coming soon to the App Store.</p>
+    </div>
+    <div class="cta">
+      <a class="store-badge store-live" href="https://play.google.com/store/apps/details?id=com.trajectorylabs.prism" aria-label="Get Prism on Google Play">
+        <img src="../shared/google-play-badge.png" width="188" height="56" alt="Get it on Google Play" loading="lazy">
+      </a>
+      <span class="soon-pill"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</span>
+      <a class="btn secondary" href="https://prism-focus.com">Visit prism-focus.com</a>
+      <a class="btn secondary" href="../#apps">More apps from Trajectory Labs</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ SHARED CHROME: contact band ============ -->
+<section class="band" id="support">
+  <div class="wrap">
+    <div>
+      <p class="label">Support</p>
+      <h2>Questions or ideas for Prism?</h2>
+      <p>Email the team that builds it.</p>
+    </div>
+    <div class="band-mail">
+      <a class="mail" href="mailto:prism@trajectorylabs.io">prism@trajectorylabs.io</a>
+      <button class="btn secondary" type="button" data-copy="prism@trajectorylabs.io" hidden>Copy email</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHARED CHROME: footer ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <p class="legal">Google Play and the Google Play logo are trademarks of Google LLC.</p>
+    <div class="row">
+      <span>&copy; 2026 Trajectory Labs, LLC. All rights reserved.</span>
+      <nav aria-label="Footer">
+        <a href="https://prism-focus.com/privacy/">Privacy policy</a>
+        <a href="https://prism-focus.com/support/">Support</a>
+        <a href="https://prism-focus.com">prism-focus.com</a>
+        <a href="../">Trajectory Labs</a>
+      </nav>
+      <span>Made in Oklahoma</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Copy email button: only shown when the clipboard API exists. Pure enhancement.
+(function () {
+  var b = document.querySelector('[data-copy]');
+  if (!b || !navigator.clipboard) return;
+  b.hidden = false;
+  b.addEventListener('click', function () {
+    navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
+      var t = b.textContent; b.textContent = 'Copied'; b.setAttribute('data-done', '');
+      setTimeout(function () { b.textContent = t; b.removeAttribute('data-done'); }, 1800);
+    });
+  });
+})();
+</script>
+</body>
+</html>
