@@ -3,16 +3,14 @@
      Trajectory Labs app page (from the hamprep-site template, see TEMPLATE.md).
      Served at trajectorylabs.io/prism/. All links to the parent site are relative.
      Copy, icon and screenshots come from the prism-task-focus repo (prism-web/ marketing site and prism-mobile/assets).
-     STORE STATE: live on Google Play (Android) since Nov 27, 2026. iPhone and iPad version in App Store review since Nov 26, 2026.
-     The App Store slot shows a "coming soon" pill (not tied to data-store). When Apple approves it, swap the pill for the
-     official badge linking to the App Store listing, update the cta-notes and add Apple's trademark line in the footer.
+     STORE STATE: live on the App Store (iPhone and iPad) and on Google Play (Android) as of Nov 28, 2026.
      ============================================================ -->
 <html lang="en" data-store="live">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Prism: Lists and reminders, all in one place</title>
-<meta name="description" content="Prism keeps task lists, checklists and routines that reset in one place, with a Today view, due dates as you type and reminders on time. Free on Android, coming soon to iPhone and iPad. No sign-up.">
+<meta name="description" content="Prism keeps task lists, checklists and routines that reset in one place, with a Today view, due dates as you type and reminders on time. Free on iPhone, iPad and Android. No sign-up.">
 <link rel="canonical" href="https://trajectorylabs.io/prism/">
 <meta name="theme-color" content="#f5f9f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b1513" media="(prefers-color-scheme: dark)">
@@ -101,14 +99,15 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
       <p class="lead">See your day at a glance, keep everything in lists, and get reminded on time. Due dates as you type, home screen widgets, and routines that reset themselves.</p>
 
       <div class="cta">
+        <a class="store-badge store-live" href="https://apps.apple.com/us/app/prism-focus-task-manager/id6761664849" aria-label="Download Prism on the App Store">
+          <img src="../shared/app-store-badge-black.svg" width="168" height="56" alt="Download on the App Store">
+        </a>
         <a class="store-badge store-live" href="https://play.google.com/store/apps/details?id=com.trajectorylabs.prism" aria-label="Get Prism on Google Play">
           <img src="../shared/google-play-badge.png" width="188" height="56" alt="Get it on Google Play">
         </a>
-        <!-- App Store: coming soon until Apple approves it (no link, no badge) -->
-        <span class="soon-pill"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</span>
         <a class="btn secondary" href="https://prism-focus.com">Visit prism-focus.com</a>
       </div>
-      <p class="cta-note">Free on Google Play for Android, with no sign-up. The iPhone and iPad version is coming soon to the App Store.</p>
+      <p class="cta-note">Free on the App Store for iPhone and iPad and on Google Play for Android, with no sign-up.</p>
     </div>
 
     <div class="hero-art" aria-hidden="true">
@@ -238,13 +237,15 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
     <div class="section-head cta-head">
       <p class="label accent">Get Prism</p>
       <h2>Get your lists in order.</h2>
-      <p>Prism is free on Google Play for Android, with no sign-up. The iPhone and iPad version is coming soon to the App Store.</p>
+      <p>Prism is free on the App Store for iPhone and iPad and on Google Play for Android, with no sign-up.</p>
     </div>
     <div class="cta">
+      <a class="store-badge store-live" href="https://apps.apple.com/us/app/prism-focus-task-manager/id6761664849" aria-label="Download Prism on the App Store">
+        <img src="../shared/app-store-badge-black.svg" width="168" height="56" alt="Download on the App Store" loading="lazy">
+      </a>
       <a class="store-badge store-live" href="https://play.google.com/store/apps/details?id=com.trajectorylabs.prism" aria-label="Get Prism on Google Play">
         <img src="../shared/google-play-badge.png" width="188" height="56" alt="Get it on Google Play" loading="lazy">
       </a>
-      <span class="soon-pill"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</span>
       <a class="btn secondary" href="https://prism-focus.com">Visit prism-focus.com</a>
       <a class="btn secondary" href="../#apps">More apps from Trajectory Labs</a>
     </div>
@@ -270,7 +271,7 @@ if (!location.hash) { window.scrollTo(0, 0); addEventListener('load', function (
 <!-- ============ SHARED CHROME: footer ============ -->
 <footer class="footer">
   <div class="wrap">
-    <p class="legal">Google Play and the Google Play logo are trademarks of Google LLC.</p>
+    <p class="legal">Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
     <div class="row">
       <span>&copy; 2026 Trajectory Labs, LLC. All rights reserved.</span>
       <nav aria-label="Footer">
